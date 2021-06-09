@@ -28,52 +28,52 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link pt-3" href="{{ route('login') }}" style="color: #fff; font-size:12.5px;">{{ __('Login') }}</a>
+                            <a class="nav-link pt-3" href="{{ route('login') }}" style="color: #fff; font-size:13px;">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link pt-3" href="{{ route('register') }}" style="color: #fff; font-size:12.5px;">{{ __('Register') }}</a>
+                                <a class="nav-link pt-3" href="{{ route('register') }}" style="color: #fff; font-size:13px;">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:12.5px;">
+                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                               My Profile
                             </a>
                           </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:12.5px;">
+                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                               Self Registration
                             </a>
                           </li>
                           <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:12.5px;">
+                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                               Coursework Marks
                             </a>
                           </li>
                           <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:12.5px;">
+                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                               Progress Reports
                             </a>
                           </li>
                           <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:12.5px;">
+                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                               Attendance
                             </a>
                           </li>
                           <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:12.5px;">
+                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                               Exam Card
                             </a>
                           </li>
                           <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:12.5px;">
+                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                               Fee Structure
                             </a>
                           </li>
                           <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:12.5px;">
+                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                               Register for Graduation
                             </a>
                           </li>

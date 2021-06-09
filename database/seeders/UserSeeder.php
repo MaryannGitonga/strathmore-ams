@@ -19,52 +19,52 @@ class UserSeeder extends Seeder
         $users = [
             [
                 'name' => 'Akidiva, Davies Nathan',
-                'email' => 'davies.akidiva@strathmore.com',
+                'email' => 'davies.akidiva@strathmore.edu',
                 'password' => bcrypt('12345678'),
             ],
             [
                 'name' => 'Mugo, Margaret Wambui',
-                'email' => 'wambui.mugo@strathmore.com',
+                'email' => 'wambui.mugo@strathmore.edu',
                 'password' => bcrypt('12345678'),
             ],
             [
                 'name' => 'Sagwa, Susan Ayago',
-                'email' => 'susan.sagwa@strathmore.com',
+                'email' => 'susan.sagwa@strathmore.edu',
                 'password' => bcrypt('12345678'),
             ],
             [
                 'name' => 'Kitaka, Cyprian Kyalo',
-                'email' => 'cyprian.kyalo@strathmore.com',
+                'email' => 'cyprian.kyalo@strathmore.edu',
                 'password' => bcrypt('12345678'),
             ],
             [
                 'name' => 'Madafali, Whitney Atonya',
-                'email' => 'whitney.atonya@strathmore.com',
+                'email' => 'whitney.atonya@strathmore.edu',
                 'password' => bcrypt('12345678'),
             ],
             [
                 'name' => 'Otieno, Stephanie Achieng',
-                'email' => 'otieno.stephanie@strathmore.com',
+                'email' => 'otieno.stephanie@strathmore.edu',
                 'password' => bcrypt('12345678'),
             ],
             [
                 'name' => 'Thomas, Bridget Nyatichi',
-                'email' => 'bridget.thomas@strathmore.com',
+                'email' => 'bridget.thomas@strathmore.edu',
                 'password' => bcrypt('12345678'),
             ],
             [
                 'name' => 'Wariua, Nicholas Kanyi',
-                'email' => 'nicholas.wariua@strathmore.com',
+                'email' => 'nicholas.wariua@strathmore.edu',
                 'password' => bcrypt('12345678'),
             ],
             [
                 'name' => 'K\'obara, Joel Rodgers',
-                'email' => 'joel.kobara@strathmore.com',
+                'email' => 'joel.kobara@strathmore.edu',
                 'password' => bcrypt('12345678'),
             ],
             [
                 'name' => 'Gitonga, Maryann Mwendwa',
-                'email' => 'maryann.mwendwa@strathmore.com',
+                'email' => 'maryann.mwendwa@strathmore.edu',
                 'password' => bcrypt('12345678'),
             ],
             ];
