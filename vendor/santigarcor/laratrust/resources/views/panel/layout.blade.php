@@ -44,11 +44,6 @@
                           </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:12.5px;">
-                              Edit Profile
-                            </a>
-                          </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:12.5px;">
                               Self Registration
                             </a>
                           </li>
