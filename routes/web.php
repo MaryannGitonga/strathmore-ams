@@ -19,5 +19,6 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/dashboard', [StudentController::class, 'profile'])->middleware(['auth'])->name('dashboard');
+Route::get('/exam-card', [StudentController::class, 'exam_card'])->middleware(['auth'])->name('exam-card');
 
 require __DIR__.'/auth.php';

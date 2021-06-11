@@ -14,4 +14,9 @@ class StudentController extends Controller
         $user = Auth::user()->id;
         return view('dashboard', compact('user'));
     }
+    public function exam_card()
+    {
+        $user = Auth::user()->id;
+        return view('examcard', compact('user'));
+    }
 }

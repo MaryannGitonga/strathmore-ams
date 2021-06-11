@@ -23,7 +23,7 @@
                 @else
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                        <a href="{{ route('dashboard') }}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                           Dashboard
                         </a>
                       </li>
@@ -48,7 +48,7 @@
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                        <a href="{{ route('exam-card') }}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                           Exam Card
                         </a>
                       </li>
