@@ -18,6 +18,7 @@ class CreateStudentsTable extends Migration
             $table->integer('admission_no')->unique();
             $table->string('avatar')->nullable()->default('avatar.png');
             $table->integer('year');
+            $table->string('intake');
             $table->string('prev_school');
             $table->string('phone');
             $table->string('dob');
