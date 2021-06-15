@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\coursemarkController;
+use App\Http\Controllers\ProgressReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +24,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/coursemarks', [coursemarkController::class, 'index']) ->name('coursemarks.index');
+Route::get('/progress', [ProgressReportController::class, 'index']) ->name('progress.index');
