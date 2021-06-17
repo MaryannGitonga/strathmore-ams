@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '5048b808cdc55979b7469f39b1c5220a9cab2957',
+    'reference' => '7bca94cc1ba286448d4ff15f4d1f6d36539a59b8',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -478,7 +478,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '5048b808cdc55979b7469f39b1c5220a9cab2957',
+      'reference' => '7bca94cc1ba286448d4ff15f4d1f6d36539a59b8',
     ),
     'laravel/sail' => 
     array (
