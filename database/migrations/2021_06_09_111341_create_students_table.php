@@ -17,8 +17,8 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->integer('admission_no')->unique();
             $table->string('avatar')->nullable()->default('avatar.png');
-            $table->integer('year');
-            $table->string('intake');
+            $table->enum('gender', ['male', 'female']);
+            $table->integer('semester');
             $table->string('prev_school');
             $table->string('phone');
             $table->string('dob');
@@ -28,8 +28,9 @@ class CreateStudentsTable extends Migration
             $table->string('home_county');
             $table->string('religion');
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('group_id')->constrained();
             $table->foreignId('mentor_id')->constrained();
-            $table->string('last_seen');
+            $table->string('mentor_last_seen');
             $table->timestamps();
         });
     }

@@ -24,4 +24,14 @@ class Student extends Model
         return $this->belongsToMany(Course::class);
     }
 
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
+    }
+
+    public function units()
+    {
+        return $this->belongsToMany(Unit::class);
+    }
+
 }

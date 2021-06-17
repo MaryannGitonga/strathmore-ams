@@ -14,7 +14,11 @@
                 <h1 class="heading">Student Profile</h1>
                 <div class="left-col">
                     <center>
-                    <img src="{{ Storage::url('uploads/avatars/'. Auth::user()->id . '/' . Auth::user()->avatar . '') }}" class="rounded-circle" style="height:200px;width:200px" onerror="this.src='uploads/avatars/avatar.jpeg';" class="profile_image2"width="110" height="110" alt="">
+                        @if (Auth::user()->student->gender == 'female')
+                            <img src="{{ Storage::url('uploads/avatars/'. Auth::user()->id . '/' . Auth::user()->student->avatar . '') }}" class="rounded-circle" style="height:200px;width:200px" onerror="this.src='uploads/avatars/avatar2.png';" class="profile_image2"width="110" height="110" alt="">
+                        @else
+                            <img src="{{ Storage::url('uploads/avatars/'. Auth::user()->id . '/' . Auth::user()->student->avatar . '') }}" class="rounded-circle" style="height:200px;width:200px" onerror="this.src='uploads/avatars/avatar.jpeg';" class="profile_image2"width="110" height="110" alt="">
+                        @endif
                     <p class="caption" style="margin-top: 30px">
                         <span id="FullName" style="font-size: 1.3em; font-weight: bold; color: #013676;">{{ Auth::user()->name }}</span>
                     </p>

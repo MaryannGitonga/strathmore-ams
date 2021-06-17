@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGroupsTable extends Migration
+class StudentUnit extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('groups', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('student_unit', function (Blueprint $table) {
+            $table->foreignId('student_id')->constrained();
+            $table->foreignId('unit_id')->constrained();
+            $table->enum('status', ['pending', 'retake', 'completed'])->default('pending');
         });
     }
 
@@ -26,6 +27,6 @@ class CreateGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('student_unit');
     }
 }

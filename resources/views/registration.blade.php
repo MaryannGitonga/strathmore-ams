@@ -11,41 +11,6 @@
   {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
   <title>Document</title>
   <style>
-    .table{
-      /*border-radius: 5px;*/
-      /*border-collapse: separate;
-      border-spacing: 1px 0;*/
-
-        padding: 0px;
-     border-collapse: collapse;
-     text-indent: initial;
-     white-space: normal;
-     line-height: normal;
-     font-weight: normal;
-     font-size: 14px;
-     font-style: normal;
-     text-align: start;
-     border-spacing: 0pt;
-     border-radius: 12px 12px 12px 12px;
-     overflow: hidden;
-     font-variant: normal;
-     border: medium none;
-     border-color: #000000 ;
-     z-index: 2;
-     /*text-align: center;*/
-    }
-
-    .th{
-      /*text-align: center;*/
-      border: thin solid #ccc;
-    
-    }
-
-    th{
-      border-spacing: 1px 0;
-      
-    }
-
     td{
        border: thin solid #CCCCCC;
        padding: 5px 15px;
@@ -57,9 +22,9 @@
     }
 
     .theading{
-      background-color: #013676;
       color: #fff;
-     
+      background-color: #013676;
+
     }
 
     .registration{
@@ -69,7 +34,12 @@
     .registered, .available{
       background-color: #013676;
       color: #fff;
-      
+      text-decoration: none;
+    }
+    .registered:hover, .available:hover{
+      background-color: #fff;
+      color: #013676;
+      text-decoration: none;
     }
 
     .units{
@@ -83,115 +53,73 @@
     .option a.selected {
       background-color: white;
     }
-    .unit-section .available:hover {
-      color: black;
-    }
   </style>
 </head>
 <body>
-
-  <div class="registration p-2">
-  <div class="unit-section flex mt-3">
-    <a href="{{route('registration')}}" class="registered ml-4 mx-2 p-2" style="text-decoration: none;">Registered Units</a>
-    <a href="{{route('available')}}" class="available mx-2 p-2" style="text-decoration: none; background-color: grey;">Available Units</a>    
-  </div>
-
-  <div class="units p-2">
-    <div class="mt-2 -mb-2 option">
-      <a href="{{route('registration')}}" class="ordinary p-2" style="text-decoration: none;">Ordinary</a>
-      <a href="{{route('retake')}}" class="retakes p-2" style="text-decoration: none;">Retakes/Specials</a>
-    </div>
-    <hr>
-            <table class="table">
+    <div class="flex flex-col">
+        @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
+        @endif
+        <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+            <div class="unit-section flex mt-3">
+                <a href="{{route('registration')}}" href="{{route('laratrust.roles.create')}}"
+                class="self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered ">
+                    Registered Units
+                </a>
+                <a href="{{route('available')}}" href="{{route('laratrust.roles.create')}}"
+                class="ml-2 self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded available">
+                Available Units
+            </a>
+              </div>
+          <div class="mt-4 align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
+            <div class="mt-2 -mb-2 option">
+                <a href="{{route('registration')}}" class="ordinary p-2" style="text-decoration: none; color: #013676;">Ordinary</a>
+                <a href="{{route('retake')}}" class="retakes p-2" style="text-decoration: none; color: #013676;">Retakes/Specials</a>
+              </div>
+              <hr>
+            <table class="min-w-full">
               <thead>
                 <tr>
-                  <th class="th theading">Unit Code</th>
-                  <th class="th theading">Unit Name</th>
-                  <th class="th theading">Year</th>
-                  <th class="th theading">Credits</th>
-                  <th class="th theading">Group</th>
-                  <th class="th theading">Semester</th>
-                  <th class="th theading">Status</th>
+                    <th class="th theading">Unit Code</th>
+                    <th class="th theading">Unit Name</th>
+                    <th class="th theading">Year</th>
+                    <th class="th theading">Credits</th>
+                    <th class="th theading">Group</th>
+                    <th class="th theading">Semester</th>
+                    <th class="th theading">Status</th>
                 </tr>
               </thead>
               <tbody class="bg-white">
+                @foreach ($registered_units as $unit)
                 <tr class="tr">
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3101</td>
-                  <td class="td text-sm leading-5 text-gray-900">Advanced Database Systems</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3A May 2021</td>
-                  <td class="td text-sm leading-5 text-gray-900">First Semester</td>
-                  <td class="td text-sm leading-5 text-gray-900">AWAITING EXAM</td>
+                    <td class="td text-sm leading-5 text-gray-900">{{$unit->unit_code}}</td>
+                    <td class="td text-sm leading-5 text-gray-900">{{$unit->name}}</td>
+                    <td class="td text-sm leading-5 text-gray-900 d">{{$unit->year}}</td>
+                    <td class="td text-sm leading-5 text-gray-900 d">{{$unit->credits}}</td>
+                    <td class="td text-sm leading-5 text-gray-900">
+                        {{$unit->students()->where('student_id', Auth::user()->student->id)->first()->group->name}}
+                    </td>
+                    <td class="td text-sm leading-5 text-gray-900">
+                    @if($unit->semester == 1)
+                      First Semester
+                    @elseif ($unit->semester == 2)
+                        Second Semester
+                    @endif
+                    </td>
+                    <td class="td text-sm leading-5 text-gray-900" style="text-transform: capitalize">
+                        @if ($unit->students()->where('student_id', Auth::user()->student->id)->first()->pivot->status == 'pending')
+                            Awaiting Exam
+                        @endif
+                    </td>
                 </tr>
-                <tr>
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3101</td>
-                  <td class="td text-sm leading-5 text-gray-900">Computer Fundamentals</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3A May 2021</td>
-                  <td class="td text-sm leading-5 text-gray-900">First Semester</td>
-                  <td class="td text-sm leading-5 text-gray-900">AWAITING EXAM</td>
-                </tr>
-                <tr>
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3101</td>
-                  <td class="td text-sm leading-5 text-gray-900">Computer Fundamentals</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3A May 2021</td>
-                  <td class="td text-sm leading-5 text-gray-900">First Semester</td>
-                  <td class="td text-sm leading-5 text-gray-900">AWAITING EXAM</td>
-                </tr>
-                <tr>
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3101</td>
-                  <td class="td text-sm leading-5 text-gray-900">Computer Fundamentals</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3A May 2021</td>
-                  <td class="td text-sm leading-5 text-gray-900">First Semester</td>
-                  <td class="td text-sm leading-5 text-gray-900">AWAITING EXAM</td>
-                </tr>
-                <tr>
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3101</td>
-                  <td class="td text-sm leading-5 text-gray-900">Computer Fundamentals</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3A May 2021</td>
-                  <td class="td text-sm leading-5 text-gray-900">First Semester</td>
-                  <td class="td text-sm leading-5 text-gray-900">AWAITING EXAM</td>
-                </tr>
-                <tr>
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3101</td>
-                  <td class="td text-sm leading-5 text-gray-900">Computer Fundamentals</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3A May 2021</td>
-                  <td class="td text-sm leading-5 text-gray-900">First Semester</td>
-                  <td class="td text-sm leading-5 text-gray-900">AWAITING EXAM</td>
-                </tr>
-                <tr>
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3101</td>
-                  <td class="td text-sm leading-5 text-gray-900">Computer Fundamentals</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3A May 2021</td>
-                  <td class="td text-sm leading-5 text-gray-900">First Semester</td>
-                  <td class="td text-sm leading-5 text-gray-900">AWAITING EXAM</td>
-                </tr>
-                <tr>
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3101</td>
-                  <td class="td text-sm leading-5 text-gray-900">Computer Fundamentals</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900 d">3</td>
-                  <td class="td text-sm leading-5 text-gray-900">ICS 3A May 2021</td>
-                  <td class="td text-sm leading-5 text-gray-900">First Semester</td>
-                  <td class="td text-sm leading-5 text-gray-900">AWAITING EXAM</td>
-                </tr>
+                @endforeach
               </tbody>
             </table>
+          </div>
+        </div>
     </div>
-  </div>
-  
 </body>
 </html>
 @endsection

@@ -15,7 +15,7 @@ class CourseUnit extends Migration
     {
         Schema::create('course_unit', function (Blueprint $table) {
             $table->foreignId('course_id')->constrained();
-            $table->foreignId('student_id')->constrained();
+            $table->foreignId('unit_id')->constrained();
         });
     }
 
