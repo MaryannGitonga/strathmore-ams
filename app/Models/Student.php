@@ -8,6 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
+    protected $fillable =[
+        'user_id',
+        'admission_no',
+        'year',
+        'prev_school',
+        'phone',
+        'dob',
+        'national_ID',
+        'address',
+        'home_county',
+        'religion'
+    ];
+
 
     public function user()
     {
@@ -32,6 +45,11 @@ class Student extends Model
     public function units()
     {
         return $this->belongsToMany(Unit::class);
+    }
+
+    public function parents()
+    {
+      return $this->hasMany(StudentParent::class);
     }
 
 }

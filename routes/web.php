@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\PersonalController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,3 +27,12 @@ Route::get('/retake', [App\Http\Controllers\StudentController::class, 'retakes']
 Route::get('/register/{unit:id}', [App\Http\Controllers\StudentController::class, 'register_unit'])->middleware(['auth'])->name('register_unit');
 
 require __DIR__.'/auth.php';
+
+//Route::get('/uploadfile','UploadFileController@index');
+//Route::post('/uploadfile','UploadFileController@showUploadFile');
+
+Route::get('/uploadfile',[FileUploadController::class,'index'])->name('file.upload');
+//Route::post('/uploadFile', [FileController::class, 'uploadFile'])->name('uploadFile');
+//Route::post('/uploadfile','FileUploadController@showUploadFile');
+Route::get('/personal', [PersonalController::class, 'index'])->name('account.profile');
+
