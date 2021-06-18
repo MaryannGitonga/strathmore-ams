@@ -6,6 +6,18 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <style>
+            .edit-profile{
+                text-decoration: none;
+                background-color: #013676;
+                color: #fff!important;
+            }
+            .edit-profile:hover{
+                background-color: #fff;
+                color: #013676!important;
+                text-decoration: none;
+            }
+        </style>
 	</head>
 	<body>
         <!--HOME PAGE START-->
@@ -22,6 +34,10 @@
                     <p class="caption" style="margin-top: 30px">
                         <span id="FullName" style="font-size: 1.3em; font-weight: bold; color: #013676;">{{ Auth::user()->name }}</span>
                     </p>
+                    <a href="{{route('account.profile')}}"
+                    class="self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded edit-profile">
+                        Edit Profile
+                    </a>
                 </center>
                 </div>
                 <div class="right-col">

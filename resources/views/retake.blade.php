@@ -9,7 +9,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
-  <title>Document</title>
   <style>
     td{
        border: thin solid #CCCCCC;
@@ -49,8 +48,10 @@
       text-align: center;
     }
 
-    .option a.selected {
+    #selected {
       background-color: white;
+      color: #013676;
+      border: solid #013676
     }
   </style>
 </head>
@@ -67,11 +68,11 @@
     </div>
     <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
         <div class="unit-section flex mt-3">
-            <a href="{{route('registration')}}" href="{{route('laratrust.roles.create')}}"
-            class="self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered ">
+            <a href="{{route('registration')}}"
+            class="self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered">
                 Registered Units
             </a>
-            <a href="{{route('available')}}" href="{{route('laratrust.roles.create')}}"
+            <a href="{{route('available')}}"
             class="ml-2 self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded available">
             Available Units
         </a>
@@ -80,11 +81,11 @@
     @else
     <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
         <div class="unit-section flex mt-3">
-            <a href="{{route('registration')}}" href="{{route('laratrust.roles.create')}}"
+            <a href="{{route('registration')}}"
             class="self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered ">
                 Registered Units
             </a>
-            <a href="{{route('available')}}" href="{{route('laratrust.roles.create')}}"
+            <a href="{{route('available')}}"
             class="ml-2 self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded available">
             Available Units
         </a>
