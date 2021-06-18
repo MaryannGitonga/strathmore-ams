@@ -122,7 +122,7 @@
                                 <span style="text-transform: capitalize">{{ Auth::user()->student->courses()->first()->status }}</span>
                             </td>
                             <td>
-                                <span>{{ Auth::user()->student->intake }}</span>
+                                <span>{{ Auth::user()->student->group->name }}</span>
                             </td>
                             <td>
                                 <a href="" aria-label="View Your Coursework Marks">Coursework</a>
@@ -155,7 +155,7 @@
                                     <a href="mailto:david@strathmore.edu">{{ Auth::user()->student->mentor->email }}</a>
                                 </td>
                                 <td>
-                                    <span>{{ Auth::user()->student->last_seen }}</span>
+                                    <span>{{ Auth::user()->student->mentor_last_seen }}</span>
                                 </td>
                                 <td>
                                     <a href="" aria-label="Mentoring Session Feedback Form">Fill in the Mentoring Feedback Form</a>
