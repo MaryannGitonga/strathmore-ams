@@ -64,22 +64,12 @@
             </ul>
         </div>
         @endif
-        <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-            @if (Auth::user()->student->result_slip != null && Auth::user()->student->ID_copy != null)
+        @if (Auth::user()->student->result_slip != null && Auth::user()->student->ID_copy != null)
                 <div class="alert alert-info">
                     <p>You are upto date. We already have your documents.</p>
                 </div>
-                <div class="unit-section flex mt-3">
-                    <a href="{{route('account.profile')}}"
-                    class="self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered ">
-                        Personal Details
-                    </a>
-                    <a href="{{route('file.upload')}}"
-                    class="ml-2 self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded available">
-                        Documents
-                    </a>
-                </div>
-            @else
+        @endif
+        <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
             <div class="unit-section flex mt-3">
                 <a href="{{route('account.profile')}}"
                 class="self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered ">
@@ -122,7 +112,6 @@
                 </form>
             </div>
         </div>
-        @endif
     </div>
 </body>
 </html>
