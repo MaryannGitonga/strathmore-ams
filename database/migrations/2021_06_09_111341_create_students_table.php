@@ -23,10 +23,14 @@ class CreateStudentsTable extends Migration
             $table->string('phone');
             $table->string('dob');
             $table->integer('national_ID');
-            $table->string('address');
+            $table->integer('address');
+            $table->integer('postal_code');
             $table->string('residence');
             $table->string('home_county');
             $table->string('religion');
+            $table->string('personal_email');
+            $table->string('result_slip')->nullable();
+            $table->string('ID_copy')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('group_id')->constrained();
             $table->foreignId('mentor_id')->constrained();

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PersonalDetailsRequest;
+use App\Http\Requests\PersonalFilesRequest;
 use App\Models\Group;
 use App\Models\Student;
 use App\Models\Unit;
@@ -56,5 +58,45 @@ class StudentController extends Controller
         $unit->students()->attach(Auth::user()->student->id);
 
         return redirect()->route('available')->with('success', 'Unit registered successfully');
+    }
+
+    public function personal_details()
+    {
+        $father = Auth::user()->student->parents()->where('gender', 'male')->first();
+        $mother = Auth::user()->student->parents()->where('gender', 'female')->first();
+        return view('personal', compact('father', 'mother'));
+    }
+
+    public function documents()
+    {
+        return view('fileUpload');
+    }
+
+    public function save_details(PersonalDetailsRequest $request, Student $student)
+    {
+        $validated = $request->validated();
+
+        $student->national_ID = $validated['national_ID'];
+        $student->religion = $validated['religion'];
+        $student->address = $validated['address'];
+        $student->postal_code = $validated['postal_code'];
+        $student->home_county = $validated['home_county'];
+        $student->residence = $validated['residence'];
+        $student->personal_email = $validated['personal_email'];
+
+        $student->update();
+        return redirect()->route('account.profile')->with('success', 'Personal details updated successfully');
+    }
+
+    public function save_files(PersonalFilesRequest $request, Student $student)
+    {
+        $validated = $request->validated();
+
+        $student->result_slip = $validated['result_slip'];
+        $student->ID_copy = $validated['ID_copy'];
+
+        $student->update();
+
+        return redirect()->route('account.profile')->with('success', 'Personal files uploaded successfully');
     }
 }
