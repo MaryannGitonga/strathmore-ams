@@ -37,46 +37,56 @@
                         @endif
                     @else
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
-                              My Profile
-                            </a>
-                          </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
-                              Self Registration
-                            </a>
-                          </li>
-                          <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
-                              Coursework Marks
-                            </a>
-                          </li>
-                          <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
-                              Progress Reports
-                            </a>
-                          </li>
-                          <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
-                              Attendance
-                            </a>
-                          </li>
-                          <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
-                              Exam Card
-                            </a>
-                          </li>
-                          <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
-                              Fee Structure
-                            </a>
-                          </li>
-                          <li class="nav-item">
-                            <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
-                              Register for Graduation
-                            </a>
-                          </li>
+                    <li class="nav-item">
+                        <a href="{{ route('dashboard') }}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          Dashboard
+                        </a>
+                      </li>
+                    <li class="nav-item">
+                        <a href="{{route('registration')}}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          Self Registration
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          Coursework Marks
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          Progress Reports
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          Attendance
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="{{ route('exam-card') }}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          Exam Card
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          Fee Structure
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          Register for Graduation
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                         {{ __('Logout') }}
+                     </a>
+                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                      </li>
                     @endguest
                 </ul>
             </div>
