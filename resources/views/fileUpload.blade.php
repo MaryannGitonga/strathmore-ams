@@ -91,13 +91,13 @@
                           </tr>
                         </thead>
                         <tbody class="bg-white">
-                            <tr class="tr">
+                            <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                                 <td class="td text-sm leading-5 text-gray-900">Secondary school results slip</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input type="file" name="result_slip" id="inpResultSlip">
                                 </td>
                             </tr>
-                            <tr class="tr">
+                            <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                                 <td class="td text-sm leading-5 text-gray-900">National ID/Passport/Birth certificate</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input type="file" name="ID_copy" id="inpId">

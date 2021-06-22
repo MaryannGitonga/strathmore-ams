@@ -116,7 +116,7 @@
                         </tr>
                         <tr class="trow">
                             <td>
-                                <span>{{ Auth::user()->student->courses()->first()->name }}</span>
+                                <span>Informatics and Computer Science</span>
                             </td>
                             <td>
                                 <span style="text-transform: capitalize">{{ Auth::user()->student->courses()->first()->status }}</span>

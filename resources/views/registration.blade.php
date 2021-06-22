@@ -94,7 +94,7 @@
               </thead>
               <tbody class="bg-white">
                 @foreach ($registered_units as $unit)
-                <tr class="tr">
+                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                     <td class="td text-sm leading-5 text-gray-900">{{$unit->unit_code}}</td>
                     <td class="td text-sm leading-5 text-gray-900">{{$unit->name}}</td>
                     <td class="td text-sm leading-5 text-gray-900 d">{{$unit->year}}</td>
