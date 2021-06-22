@@ -1,0 +1,60 @@
+div.page-content {
+	padding: 10px 0;
+	margin: 0 auto;
+}
+
+.page-content-nav {
+	width: 280px;
+}
+
+.page-content-main {
+	position: absolute;
+	left: 180px;
+	top: 70px;
+	width: 1050px;
+	
+	padding-bottom: 10px;
+}
+
+div#page-content-box {
+	border: 3px solid #CCCCCC;
+	min-height: 30em;
+}
+
+.navigation-menu li { padding-left: 0; margin-left: 0; left: 0; }
+.navigation-menu li.link-item { list-style-image: url(../../../../../../web/images/Elemento.gif); list-style-type: disc; }
+.navigation-menu li.closed-folder { list-style-image: url(../../../../../../web/images/CarpetaCerrada.gif); list-style-type: square; }
+.navigation-menu li.open-folder { list-style-image: url(../../../../../../web/images/CarpetaAbierta.gif); list-style-type: square; }
+.navigation-menu li a { display: block; padding: 1px 0; }
+.navigation-menu li a:hover { color: #FF0000; }
+
+input.button { border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; margin:0 5px; }
+
+ul.inline-menu { padding: 0; margin: 0; }
+.inline-menu li { float: left; padding: 0 5px;}
+
+.left-col { float: left !important; margin:0 15px;} 
+.right-col { float: left; !important; }
+
+div.photo-holder { 
+	border: 1px solid #DDD; 
+	background-color: #F3F3F3;
+	padding: 4px 6px;
+	border-radius: 3px; 
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px; 
+}
+
+p.caption { text-align: center; font-size: 110%; }
+
+input.round-btn {
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 5px 15px;
+	margin: 0 3px;
+	font-size: 110%;
+	font-family: Arial, sans-serif, "Trebuchet MS", verdana;
+	border: 1px solid #CCC;
+	background-color: #F3F3F3;
+}

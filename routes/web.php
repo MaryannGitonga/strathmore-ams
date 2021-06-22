@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\feesstructureController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name ('home');
+Route::get('/feesstructure',[feesstructureController::class,'index'])->name('feesstructure.index');
