@@ -1,9 +1,12 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Controllers\coursemarkController;
 use App\Http\Controllers\ProgressReportController;
+=======
+use App\Http\Controllers\StudentController;
+>>>>>>> 3335f0b8f3917434d9aca052d8a817979683072f
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,11 +22,18 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [App\Http\Controllers\StudentController::class, 'profile'])->middleware(['auth'])->name('dashboard');
+Route::get('/exam-card', [App\Http\Controllers\StudentController::class, 'exam_card'])->middleware(['auth'])->name('exam-card');
+Route::get('/registration', [App\Http\Controllers\StudentController::class, 'register_units'])->middleware(['auth'])->name('registration');
+Route::get('/available', [App\Http\Controllers\StudentController::class, 'available_units'])->middleware(['auth'])->name('available');
+Route::get('/retake', [App\Http\Controllers\StudentController::class, 'retakes'])->middleware(['auth'])->name('retake');
+Route::get('/register/{unit:id}', [App\Http\Controllers\StudentController::class, 'register_unit'])->middleware(['auth'])->name('register_unit');
+Route::get('/upload-files',[StudentController::class,'documents'])->middleware(['auth'])->name('file.upload');
+Route::get('/personal-details', [StudentController::class, 'personal_details'])->middleware(['auth'])->name('account.profile');
+Route::put('/save-details/{student:id}', [StudentController::class, 'save_details'])->middleware(['auth'])->name('save_details');
+Route::post('/save-files/{student:id}', [StudentController::class, 'save_files'])->middleware(['auth'])->name('save_files');
 
 require __DIR__.'/auth.php';
 
-Route::get('/coursemarks', [coursemarkController::class, 'index']) ->name('coursemarks.index');
-Route::get('/progress', [ProgressReportController::class, 'index']) ->name('progress.index');
+Route::get('/coursemarks', [App\Http\Controllers\coursemarkController::class, 'index']) ->name('coursemarks.index');
+Route::get('/progress', [App\Http\ControllersProgressReportController::class, 'index']) ->name('progress.index');

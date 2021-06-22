@@ -17,8 +17,14 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CourseSeeder::class,
             MentorSeeder::class,
+            LecturerSeeder::class,
+            GroupSeeder::class,
             StudentSeeder::class,
-            CourseStudentSeeder::class
+            ParentSeeder::class,
+            UnitSeeder::class,
+            CourseStudentSeeder::class,
+            CourseUnitSeeder::class,
+            StudentUnitSeeder::class
         ]);
     }
 }
