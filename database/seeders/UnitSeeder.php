@@ -21,6 +21,7 @@ class UnitSeeder extends Seeder
                 'credits' => 3,
                 'year' => 3,
                 'semester' => 1,
+                'course_id' => 1,
                 'lecturer_id' => 1
             ],
             [
@@ -29,6 +30,7 @@ class UnitSeeder extends Seeder
                 'credits' => 3,
                 'year' => 3,
                 'semester' => 1,
+                'course_id'=> 1,
                 'lecturer_id' => 3
             ],
             [
@@ -37,6 +39,7 @@ class UnitSeeder extends Seeder
                 'credits' => 3,
                 'year' => 3,
                 'semester' => 1,
+                'course_id'=> 1,
                 'lecturer_id' => 2
             ],
             [
@@ -45,6 +48,7 @@ class UnitSeeder extends Seeder
                 'credits' => 3,
                 'year' => 3,
                 'semester' => 1,
+                'course_id'=> 1,
                 'lecturer_id' => 2
             ],
             [
@@ -53,6 +57,7 @@ class UnitSeeder extends Seeder
                 'credits' => 3,
                 'year' => 3,
                 'semester' => 1,
+                'course_id'=> 1,
                 'lecturer_id' => 2
             ],
             [
@@ -61,6 +66,7 @@ class UnitSeeder extends Seeder
                 'credits' => 3,
                 'year' => 3,
                 'semester' => 1,
+                'course_id'=> 1,
                 'lecturer_id' => 1
             ],
             [
@@ -69,6 +75,7 @@ class UnitSeeder extends Seeder
                 'credits' => 3,
                 'year' => 3,
                 'semester' => 1,
+                'course_id'=> 1,
                 'lecturer_id' => 3
             ],
             [
@@ -77,6 +84,7 @@ class UnitSeeder extends Seeder
                 'credits' => 3,
                 'year' => 3,
                 'semester' => 1,
+                'course_id'=> 1,
                 'lecturer_id' => 2
             ],
         ];
@@ -89,6 +97,7 @@ class UnitSeeder extends Seeder
                     'credits' => $unit['credits'],
                     'year' => $unit['year'],
                     'semester' => $unit['semester'],
+                    'course_id' => $unit['course_id'],
                     'lecturer_id' => $unit['lecturer_id']
               ]);
         }

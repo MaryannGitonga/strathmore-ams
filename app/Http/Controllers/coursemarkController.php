@@ -9,6 +9,6 @@ class coursemarkController extends Controller
 {
     public function index()
     {
-        return view('layouts.coursemarks');
+        return view('coursemark');
     }
 }

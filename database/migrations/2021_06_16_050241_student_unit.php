@@ -13,9 +13,11 @@ class StudentUnit extends Migration
      */
     public function up()
     {
-        Schema::create('student_unit', function (Blueprint $table) {
+        Schema::create('student_units', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('student_id')->constrained();
             $table->foreignId('unit_id')->constrained();
+            $table->double('score')->nullable()->default(0.00);
             $table->enum('status', ['pending', 'retake', 'completed'])->default('pending');
         });
     }

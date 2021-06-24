@@ -8,6 +8,8 @@ use App\Http\Requests\PersonalFilesRequest;
 use App\Models\Group;
 use App\Models\Student;
 use App\Models\Unit;
+use App\Models\Assessment;
+use App\Models\Score;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,6 +21,19 @@ class StudentController extends Controller
         $user = Auth::user()->id;
         return view('dashboard', compact('user'));
     }
+    public function progress()
+    {
+        $user = Auth::user()->id;
+        return view('report', compact('user'));
+    }
+
+    public function coursework(){
+        $user = Auth::user()->id;
+        $assessments = Assessment::all();
+        $scores = Score::all();
+        return view('coursemark', compact('user', 'assessments','scores',));
+    }
+
     public function exam_card()
     {
         $user = Auth::user()->id;

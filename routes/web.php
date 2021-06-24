@@ -1,11 +1,8 @@
 <?php
 
-<<<<<<< HEAD
 use App\Http\Controllers\coursemarkController;
 use App\Http\Controllers\ProgressReportController;
-=======
 use App\Http\Controllers\StudentController;
->>>>>>> 3335f0b8f3917434d9aca052d8a817979683072f
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +32,5 @@ Route::post('/save-files/{student:id}', [StudentController::class, 'save_files']
 
 require __DIR__.'/auth.php';
 
-Route::get('/coursemarks', [App\Http\Controllers\coursemarkController::class, 'index']) ->name('coursemarks.index');
-Route::get('/progress', [App\Http\ControllersProgressReportController::class, 'index']) ->name('progress.index');
+Route::get('/coursemarks', [App\Http\Controllers\StudentController::class, 'coursework'])->middleware(['auth']) ->name('coursemarks');
+Route::get('/progress', [App\Http\Controllers\StudentController::class, 'progress'])->middleware(['auth']) ->name('progress');

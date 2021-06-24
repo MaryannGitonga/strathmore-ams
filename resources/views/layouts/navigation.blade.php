@@ -33,12 +33,12 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                    <a href="{{route('coursemarks')}}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                       Coursework Marks
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                    <a href="{{route('progress')}}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                       Progress Reports
                     </a>
                   </li>
