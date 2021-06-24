@@ -454,11 +454,7 @@
       'aliases' =>
       array (
       ),
-<<<<<<< HEAD
       'reference' => '7bca94cc1ba286448d4ff15f4d1f6d36539a59b8',
-=======
-      'reference' => '45a6efc2ce58862ada54d454fb4505bc408fed77',
->>>>>>> 12c091f7c383d6fae30b1a3f13dfac51edc8cfc9
     ),
     'laravel/sail' =>
     array (
