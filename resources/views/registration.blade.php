@@ -11,11 +11,10 @@
   {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
   <style>
     td{
-       border: thin solid #CCCCCC;
+       border: 2px solid #CCCCCC;
        padding: 5px 15px;
        height: 2em;
     }
-
     .tr{
       border-color: #000;
     }

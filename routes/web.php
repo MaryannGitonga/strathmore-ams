@@ -33,12 +33,6 @@ Route::get('/upload-files',[StudentController::class,'documents'])->middleware([
 Route::get('/personal-details', [StudentController::class, 'personal_details'])->middleware(['auth'])->name('account.profile');
 Route::put('/save-details/{student:id}', [StudentController::class, 'save_details'])->middleware(['auth'])->name('save_details');
 Route::post('/save-files/{student:id}', [StudentController::class, 'save_files'])->middleware(['auth'])->name('save_files');
+Route::get('/coursework-marks', [StudentController::class, 'course_work']) ->name('coursework_marks');
 
 require __DIR__.'/auth.php';
-
-Route::get('/coursemarks', [coursemarkController::class, 'index']) ->name('coursemarks.index');
-Route::get('/progress', [ProgressReportController::class, 'index']) ->name('progress.index');
-Route::get('/Pending', [PendingController::class, 'index']) ->name('Pending.index');
-Route::get('/Compulsory', [CompulsoryController::class, 'index']) ->name('Compulsory.index');
-Route::get('/Specialization', [SpecializationController::class, 'index']) ->name('Specialization.index');
-Route::get('/Exemptions', [ExcemptionsController::class, 'index']) ->name('Exemptions.index');
