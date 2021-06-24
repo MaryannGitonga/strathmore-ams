@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\coursemarkController;
-use App\Http\Controllers\ProgressReportController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -29,8 +27,6 @@ Route::get('/upload-files',[StudentController::class,'documents'])->middleware([
 Route::get('/personal-details', [StudentController::class, 'personal_details'])->middleware(['auth'])->name('account.profile');
 Route::put('/save-details/{student:id}', [StudentController::class, 'save_details'])->middleware(['auth'])->name('save_details');
 Route::post('/save-files/{student:id}', [StudentController::class, 'save_files'])->middleware(['auth'])->name('save_files');
+Route::get('/coursework-marks', [StudentController::class, 'course_work']) ->name('coursework_marks');
 
 require __DIR__.'/auth.php';
-
-Route::get('/coursemarks', [App\Http\Controllers\StudentController::class, 'coursework'])->middleware(['auth']) ->name('coursemarks');
-Route::get('/progress', [App\Http\Controllers\StudentController::class, 'progress'])->middleware(['auth']) ->name('progress');

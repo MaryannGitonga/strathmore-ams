@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
+    // Module 4
     public function profile()
     {
         $user = Auth::user()->id;
@@ -39,6 +40,10 @@ class StudentController extends Controller
         $user = Auth::user()->id;
         return view('examcard', compact('user'));
     }
+
+    // End of Module 4
+
+    // Module 2
 
     public function register_units() {
         $registered_units = Auth::user()->student->units()->where('status', 'pending')->get();
@@ -74,6 +79,10 @@ class StudentController extends Controller
 
         return redirect()->route('available')->with('success', 'Unit registered successfully');
     }
+
+    // End of Module 2
+
+    // Module 1
 
     public function personal_details()
     {
@@ -114,4 +123,15 @@ class StudentController extends Controller
 
         return redirect()->route('account.profile')->with('success', 'Personal files uploaded successfully');
     }
+
+    // End of Module 1
+
+    // Module 3
+
+    public function course_work()
+    {
+        return view('coursework_marks');
+    }
+
+    // End of Module 3
 }
