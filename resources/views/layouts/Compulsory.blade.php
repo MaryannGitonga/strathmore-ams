@@ -267,15 +267,12 @@ td{
     </div>
 </nav>
 
+
             <main class="py-4">
             <div class="container">
-		   <div class="jumbotron ">
+		<div class="jumbotron ">
         	<h1>Progress Report</h1>
-    	    </div>
-            <div id="message" styke="color:#c11111; align:center; padding-top:8px; padding-left: 100px; text-transform: uppercase;">
-            PLEASE NOTE: Provisional Results are not included in the list of Completed Units.
-            </div>
-
+    	</div>
             <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 rounded mine ">
             <div class="unit-section flex mt-3">
                 <a href="{{route('progress.index')}}"
@@ -304,25 +301,15 @@ td{
           <thead>
             <tr>
                 <th class="th theading">No</th>
-                <th class="th theading">Academic Year</th>
-                <th class="th theading">Syllabus</th>
                 <th class="th theading">Year</th>
                 <th class="th theading">Subject Code</th>
                 <th class="th theading">Subject Name</th>
                 <th class="th theading">Type</th>
-                <th class="th theading">Marks</th>
-                <th class="th theading">Grade</th>
-                <th class="th theading">Credits</th>
-                <th class="th theading">GPV</th>
+                <th class="th theading">Credit Hours</th>
             </tr>
 
             
              <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
              <td></td>
              <td></td>
              <td></td>

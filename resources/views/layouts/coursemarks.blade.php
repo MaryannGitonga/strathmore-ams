@@ -8,18 +8,17 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
-                color: #e4e6e8;
+                color: #333;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
                 overflow: hidden;
-                text-align: center;
             }
 
             .full-height {
@@ -64,7 +63,64 @@
                 margin-bottom: 30px;
             }
 
-            .btn {
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+table.center {
+  margin-left: 80px; 
+  margin-right: 150px;
+}
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #e4e6e8;}
+
+
+#customers th {
+  padding-top: 30px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #013676;
+  color: white;
+}
+
+.btn {
   background-color: DodgerBlue;
   border: none;
   color: white;
@@ -78,33 +134,60 @@
   background-color: RoyalBlue;
 }
 
-.buttons {
+td{
+       border: thin solid #CCCCCC;
+       padding: 5px 15px;
+       height: 2em;
+    }
+    .tr{
+      border-color: #000;
+    }
+    .theading{
+        color: #fff;
+        background-color: #013676;
+    }
+    .registration{
+      background-color: #DDDDDD;
+    }
+    .all{
+      background-color: #013676;
+      color: #fff;
+      text-decoration: none;
+    }
+    .all:hover{
+      background-color: #fff;
+      color: #013676;
+      text-decoration: none;
+    }
+    .mine{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    }
+    .units{
+      border: 1px solid #C0ACAC;
+    }
+    .d{
+      text-align: center;
+    }
+    #selected {
+      background-color: white;
+      color: #013676;
+      border: solid #013676
+    }
+
+    .btn {
+  background-color: DodgerBlue;
   border: none;
   color: white;
-  padding: 16px 32px;
-  text-align: right;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
+  padding: 12px 30px;
   cursor: pointer;
-  Position: absolute;
-  right:    0;
-  bottom:   0;
+  font-size: 20px;
 }
 
-.button1 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #e4e6e8;
-}
-
-.button1:hover {
+.btn:hover {
   background-color: #013676;
-  color: white;
 }
-
         </style>
     </head>
     <body>
@@ -135,31 +218,6 @@
 
         <!-- Scripts -->
         <script src="http://127.0.0.1:8000/js/app.js" defer></script>
-        <style>
-#customers {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
-}
-
-#customers td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#customers tr:nth-child(even){background-color: #e4e6e8;}
-
-
-#customers th {
-  padding-top: 20px;
-  padding-bottom: 12px;
-  text-align: center;
-  background-color: #013676;
-  color: white;
-}
-</style>
     </head>
     <body>
         <div class="app">
@@ -174,30 +232,82 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
+            <div class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
-                
-                            </ul>
+                <li class="nav-item">
+                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          My Profile
+                        </a>
+                      </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          Self Registration
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          Coursework Marks
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          Progress Reports
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          Attendance
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          Exam Card
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          Fee Structure
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                          Register for Graduation
+                        </a>
+                      </li>
+                    
+                            </div>
         </div>
     </div>
 </nav>
-<button class="btn"><i class="fa fa-download"></i> Download</button>
+
+
             <main class="py-4">
-            <table id="customers">
-  <tr>
-    <th>Subject</th>
-    <th>Ordinary</th>
-    <th>Suplementary</th>
-  </tr>
+            <div class="container">
+		<div class="jumbotron ">
+        	<h1>Coursework Marks</h1>
+    	</div>
+           
+        <button class="btn"><i class="fa fa-download"></i> Download</button>
 
-  <tr>
-  <td>Database Structures</td>
-  </tr>
- 
-</table>
+          <div class="mt-4 align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
+        <table class="min-w-full">
+          <thead>
+            <tr>
+                <th class=" theading">Subject</th>
+                <th class=" theading">Ordinary</th>
+                <th class=" theading">Suplementary</th>
+                
+            </tr>
 
+            
+             <tr>
+             <td></td>
+             <td></td>
+             <td></td>
+             </tr>
+          </thead>
+          </div>
                             </main>
-        </div>
-        <button class="buttons button1">Progress Report > </button>
+       
     </body>
 </html>
