@@ -69,7 +69,7 @@
                       </li>
                       <li class="nav-item">
                       <a href="{{route('feesstructure.index')}}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
-                          Fee Structure
+                          Fee Information
                         </a>
                       </li>
                       <li class="nav-item">
