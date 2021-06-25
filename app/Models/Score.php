@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Score extends Model
 {
-    use HasFactory;
+    //use HasFactory;
+    public function assessments()
+    {
+        return $this->hasMany(Assessments::class);
+    }
 }

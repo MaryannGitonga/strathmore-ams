@@ -10,6 +10,6 @@ class Unit extends Model
     use HasFactory;
 
     public function students(){
-        return $this->belongsToMany(Student::class)->withPivot('status');
+        return $this->belongsToMany(Student::class)->withPivot('status','score');
     }
 }
