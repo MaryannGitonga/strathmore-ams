@@ -24,7 +24,9 @@ class DatabaseSeeder extends Seeder
             UnitSeeder::class,
             CourseStudentSeeder::class,
             CourseUnitSeeder::class,
-            StudentUnitSeeder::class
+            ScoreSeeder::class,
+            AssessmentSeeder::class,
+            
         ]);
     }
 }
