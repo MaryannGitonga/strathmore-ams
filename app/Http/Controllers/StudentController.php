@@ -151,4 +151,15 @@ class StudentController extends Controller
     }
 
     //////////////// End of Module 4 ////////////////
+
+
+
+    //////////////// Module 5 ////////////////
+    public function fees_structure()
+    {
+        return view('feesstructure');
+    }
+
+    //////////////// End of Module 5 ////////////////
+
 }
