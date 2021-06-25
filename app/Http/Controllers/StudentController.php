@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PersonalDetailsRequest;
 use App\Http\Requests\PersonalFilesRequest;
-use App\Models\Group;
 use App\Models\Student;
 use App\Models\Unit;
 use App\Models\Assessment;
 use App\Models\Score;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Log;
 
 class StudentController extends Controller
 {
@@ -131,6 +131,15 @@ class StudentController extends Controller
     public function course_work()
     {
         return view('coursework_marks');
+    }
+
+    public function download_coursework()
+    {
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('coursework_marks');
+        Log::info(print_r($pdf->loadView('coursework_marks'), true));
+        return redirect()->route('coursework_marks');
+        // return $pdf->download('coursework-marks.pdf');
     }
 
     // End of Module 3
