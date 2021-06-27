@@ -11,7 +11,7 @@
   {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
   <style>
     td{
-       border: thin solid #CCCCCC;
+       border: 2px solid #CCCCCC;
        padding: 5px 15px;
        height: 2em;
     }
@@ -44,6 +44,10 @@
 
     .d{
       text-align: center;
+    }
+
+    .td-heading{
+        border-left: 0.2em solid #e2e8f0;
     }
   </style>
 </head>
@@ -86,12 +90,12 @@
                           </tr>
                         </thead>
                         <tbody class="bg-white">
-                            <tr class="tr">
+                            <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                                 <td class="td text-sm leading-5 text-gray-900">ID/ Passport Number:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input type="number" value="{{Auth::user()->student->national_ID}}" name="national_ID">
                                 </td>
-                                <td class="td text-sm leading-5 text-gray-900">Religion:</td>
+                                <td class="td text-sm leading-5 text-gray-900 td-heading">Religion:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <select name="religion" id="">
                                         <option value="{{Auth::user()->student->religion}}" selected>{{Auth::user()->student->religion}}</option>
@@ -105,12 +109,12 @@
                                     </select>
                                 </td>
                             </tr>
-                            <tr class="tr">
+                            <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                                 <td class="td text-sm leading-5 text-gray-900">Postal Address:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input type="number" name="address" value="{{Auth::user()->student->address}}" id="inpResultSlip">
                                 </td>
-                                <td class="td text-sm leading-5 text-gray-900">Postal Code:</td>
+                                <td class="td text-sm leading-5 text-gray-900 td-heading">Postal Code:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <select name="postal_code" id="">
                                         <option value="{{Auth::user()->student->postal_code}}">{{Auth::user()->student->postal_code}}</option>
@@ -129,12 +133,12 @@
                                     </select>
                                 </td>
                             </tr>
-                            <tr class="tr">
+                            <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                                 <td class="td text-sm leading-5 text-gray-900">Town:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input type="text" name="home_county" value="{{Auth::user()->student->home_county}}" id="inpResultSlip">
                                 </td>
-                                <td class="td text-sm leading-5 text-gray-900">Marital Status:</td>
+                                <td class="td text-sm leading-5 text-gray-900 td-heading">Marital Status:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <select name="marital_status" id="">
                                         <option value="1" selected>Single</option>
@@ -146,7 +150,7 @@
                                     </select>
                                 </td>
                             </tr>
-                            <tr class="tr">
+                            <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                                 <td class="td text-sm leading-5 text-gray-900">Home County:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <select name="home_county" id="">
@@ -167,17 +171,17 @@
                                         <option value="Kiambu">Kiambu</option>
                                     </select>
                                 </td>
-                                <td class="td text-sm leading-5 text-gray-900">Mobile Number:</td>
+                                <td class="td text-sm leading-5 text-gray-900 td-heading">Mobile Number:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input name="phone" type="text" value="{{Auth::user()->student->phone}}" id="inpResultSlip">
                                 </td>
                             </tr>
-                            <tr class="tr">
+                            <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                                 <td class="td text-sm leading-5 text-gray-900">Residence:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input type="text" name="residence" value="{{Auth::user()->student->residence}}" id="inpResultSlip">
                                 </td>
-                                <td class="td text-sm leading-5 text-gray-900">Personal Email:</td>
+                                <td class="td text-sm leading-5 text-gray-900 td-heading">Personal Email:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input type="email" name="personal_email" value="{{Auth::user()->student->personal_email}}" id="inpResultSlip">
                                 </td>
@@ -189,62 +193,62 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white">
-                            <tr class="tr">
+                            <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                                 <td class="td text-sm leading-5 text-gray-900">Father's Name:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input disabled type="text" value="{{$father->name}}" id="inpResultSlip">
                                 </td>
-                                <td class="td text-sm leading-5 text-gray-900">Father's Email:</td>
+                                <td class="td text-sm leading-5 text-gray-900 td-heading">Father's Email:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input disabled type="email" value="{{$father->email}}" id="inpResultSlip">
                                 </td>
                             </tr>
-                            <tr class="tr">
+                            <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                                 <td class="td text-sm leading-5 text-gray-900">Father's Mobile Number:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input disabled type="number" value="{{$father->phone}}" id="inpResultSlip">
                                 </td>
-                                <td class="td text-sm leading-5 text-gray-900">Father's Occupation:</td>
+                                <td class="td text-sm leading-5 text-gray-900 td-heading">Father's Occupation:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input disabled type="text" value="{{$father->occupation}}" id="inpResultSlip">
                                 </td>
                             </tr>
-                            <tr class="tr">
+                            <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                                 <td class="td text-sm leading-5 text-gray-900">Mother's Name:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input disabled type="text" value="{{$mother->name}}" id="inpResultSlip">
                                 </td>
-                                <td class="td text-sm leading-5 text-gray-900">Mother's Email:</td>
+                                <td class="td text-sm leading-5 text-gray-900 td-heading">Mother's Email:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input disabled type="text" value="{{$mother->email}}" id="inpResultSlip">
                                 </td>
                             </tr>
-                            <tr class="tr">
+                            <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                                 <td class="td text-sm leading-5 text-gray-900">Mother's Mobile Number:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input disabled type="number" value="{{$mother->phone}}" id="inpResultSlip">
                                 </td>
-                                <td class="td text-sm leading-5 text-gray-900">Mother's Occupation:</td>
+                                <td class="td text-sm leading-5 text-gray-900 td-heading">Mother's Occupation:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input disabled type="text" value="{{$mother->occupation}}" id="inpResultSlip">
                                 </td>
                             </tr>
-                            <tr class="tr">
+                            <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                                 <td class="td text-sm leading-5 text-gray-900">Guardian's Mobile Number:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input disabled type="text" value="None" id="inpResultSlip">
                                 </td>
-                                <td class="td text-sm leading-5 text-gray-900">Guardian's Occupation:</td>
+                                <td class="td text-sm leading-5 text-gray-900 td-heading">Guardian's Occupation:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input disabled type="text" value="None" id="inpResultSlip">
                                 </td>
                             </tr>
-                            <tr class="tr">
+                            <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                                 <td class="td text-sm leading-5 text-gray-900">Guardian's Mobile Number:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input disabled type="text" value="None" id="inpResultSlip">
                                 </td>
-                                <td class="td text-sm leading-5 text-gray-900">Guardian's Occupation:</td>
+                                <td class="td text-sm leading-5 text-gray-900 td-heading">Guardian's Occupation:</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input disabled type="text" value="None" id="inpResultSlip">
                                 </td>

@@ -33,7 +33,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                    <a href="{{route('coursework_marks')}}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                       Coursework Marks
                     </a>
                   </li>
@@ -53,8 +53,8 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
-                      Fee Structure
+                    <a href="{{route('feesstructure.index')}}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                      Fee Information
                     </a>
                   </li>
                   <li class="nav-item">

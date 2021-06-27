@@ -15,10 +15,11 @@ class CreateScoresTable extends Migration
     {
         Schema::create('scores', function (Blueprint $table) {
             $table->id();
-            $table->float('score');
             $table->foreignId('student_id')->constrained();
             $table->foreignId('unit_id')->constrained();
-            $table->timestamps();
+            $table->float('score');
+            $table->enum('status', ['pending', 'retake', 'completed'])->default('pending');
+            $table->timestamps(); 
         });
     }
 
