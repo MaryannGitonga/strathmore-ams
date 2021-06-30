@@ -1,4 +1,4 @@
-<?php
+php artisan laratrust:setup<?php
 
 return [
     /*

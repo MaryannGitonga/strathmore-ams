@@ -30,5 +30,7 @@ Route::post('/save-files/{student:id}', [StudentController::class, 'save_files']
 Route::get('/feesstructure',[StudentController::class,'fees_structure'])->middleware(['auth'])->name('feesstructure.index');
 Route::get('/coursework-marks', [StudentController::class, 'course_work']) ->name('coursework_marks');
 Route::get('/download-marks', [StudentController::class, 'download_coursework']) ->name('download_marks');
+Route::get('/graduation',[StudentController::class, 'graduation'])->middleware(['auth'])->name('graduation');
+
 
 require __DIR__.'/auth.php';

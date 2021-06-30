@@ -59,6 +59,10 @@ class StudentController extends Controller
         return redirect()->route('account.profile')->with('success', 'Personal files uploaded successfully');
     }
 
+    public function graduation()
+    {
+        return view('graduation');
+    }
     //////////////// End of Module 1 ////////////////
 
 
