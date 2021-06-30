@@ -16,12 +16,12 @@ class MentorSeeder extends Seeder
     {
         $mentors = [
             [
-                'name' => 'John Doe',
-                'email' => 'john.doe@strathmore.edu',
+                'name' => 'Esther Khakata',
+                'email' => 'egathenya@strathmore.edu',
             ],
             [
-                'name' => 'Jane Doe',
-                'email' => 'jane.doe@strathmore.edu',
+                'name' => 'Esther Khakata',
+                'email' => 'egathenya@strathmore.edu',
             ]
             ];
 

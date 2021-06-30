@@ -78,104 +78,105 @@
                     2019-2020
                 </a>
             </div>
-            <div class="mt-4 mb-2 option">
-                <a href="#" class="ordinary p-2" style="text-decoration: none; color: #013676;">Download Coursework Marks</a>
-            </div>
-            <hr>
           <div class="mt-4 align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
             <table class="min-w-full">
               <thead>
                 <tr>
-                    <th class="th theading" colspan="8">
+                    <th class="th" colspan="8">
                         <h5>First Semester</h5>
                     </th>
                 </tr>
                 <tr>
-                    <th class="th">Unit Code</th>
-                    <th class="th">Unit Name</th>
-                    <th class="th">Lecturer</th>
-                    <th class="th">Total Hours</th>
-                    <th class="th">Absent Hours</th>
-                    <th class="th">Absent Classes</th>
-                    <th class="th">Percent Absent</th>
-                    <th class="th"></th>
+                    <th class="th theading">Unit Code</th>
+                    <th class="th theading">Unit Name</th>
+                    <th class="th theading">Lecturer</th>
+                    <th class="th theading">Total Hours</th>
+                    <th class="th theading">Absent Hours</th>
+                    <th class="th theading">Absent Classes</th>
+                    <th class="th theading">Percent Absent</th>
+                    <th class="th theading"></th>
                 </tr>
               </thead>
               <tbody class="bg-white">
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Data Structures & Algorithms</td>
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">95</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
+                @if (empty($first_semester))
+                <tr class="tr">
+                    <td colspan="8" style="padding-top: 20px;">There are no units registered for this semester.</td>
                 </tr>
+                @else
+                  @foreach ($first_semester as $unit)
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
+                        <td class="td text-sm leading-5 text-gray-900">{{$unit->unit_code}}</td>
+                        <td class="td text-sm leading-5 text-gray-900">{{$unit->name}}</td>
+                        <td class="td text-sm leading-5 text-gray-900">{{$unit->lecturer->name}}</td>
+                        <?php
+                            $records = $unit->attendance_records()->get();
+                            $total_hrs = 0;
+                            $absent_hrs = 0;
+                            $absent_classes = 0;
+                            $percent_absent = 0;
+                            if (count($records) != 0) {
+                                foreach ($records as $record) {
+                                    $total_hrs += (Illuminate\Support\Carbon::parse($record->end_time)->diffInHours(Illuminate\Support\Carbon::parse($record->start_time)));
+                                    if ($record->absent) {
+                                        $absent_hrs += (Illuminate\Support\Carbon::parse($record->end_time)->diffInHours(Illuminate\Support\Carbon::parse($record->start_time)));
+                                        $absent_classes += 1;
+                                    }
+                                }
+                                $percent_absent = ($absent_hrs/$total_hrs) * 100;
+                            }
+                        ?>
+                        <td class="td text-sm leading-5 text-gray-900 d">{{$total_hrs}}</td>
+                        <td class="td text-sm leading-5 text-gray-900 d">{{$absent_hrs}}</td>
+                        <td class="td text-sm leading-5 text-gray-900 d">{{$absent_classes}}</td>
+                        <td class="td text-sm leading-5 text-gray-900 d">{{$percent_absent}}%</td>
+                        <td class="td text-sm leading-5 text-gray-900"><a href="{{route('attendance_details', $unit->id)}}" style="color: #013676;">View Details</a></td>
+                    </tr>
+                  @endforeach
+                @endif
               </tbody>
               <thead>
                 <tr>
-                    <th class="th theading" colspan="3">
+                    <th class="th" colspan="8">
                         <h5>Second Semester</h5>
                     </th>
                 </tr>
               </thead>
               <tbody class="bg-white">
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Advanced Networking</td>
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">95</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
-                    <td class="td text-sm leading-5 text-gray-900">25/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">CAT 2</td>
-                    <td class="td text-sm leading-5 text-gray-900">28/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Computer Organization & Architecture</td>
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">80</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
-                    <td class="td text-sm leading-5 text-gray-900">24/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">CAT 2</td>
-                    <td class="td text-sm leading-5 text-gray-900">22/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Internet Application Programming</td>
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">74</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
-                    <td class="td text-sm leading-5 text-gray-900">25/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">Project</td>
-                    <td class="td text-sm leading-5 text-gray-900">20/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Operating Systems</td>
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">90</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
-                    <td class="td text-sm leading-5 text-gray-900">28/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">CAT 2</td>
-                    <td class="td text-sm leading-5 text-gray-900">28/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
+                @if (empty($second_semster))
+                    <tr class="tr">
+                        <td colspan="8" style="padding-top: 20px;">There are no units registered for this semester.</td>
+                    </tr>
+                @else
+                @foreach ($second_semester as $unit)
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;>
+                        <td class="td text-sm leading-5 text-gray-900">{{$unit->unit_code}}</td>
+                        <td class="td text-sm leading-5 text-gray-900">{{$unit->name}}</td>
+                        <td class="td text-sm leading-5 text-gray-900">{{$unit->lecturer->name}}</td>
+                        <?php
+                            $records = $unit->attendance_records()->get();
+                            $total_hrs = 0;
+                            $absent_hrs = 0;
+                            $absent_classes = 0;
+                            $percent_absent = 0;
+                            if (count($records) != 0) {
+                                foreach ($records as $record) {
+                                    $total_hrs += (Illuminate\Support\Carbon::parse($record->end_time)->diffInHours(Illuminate\Support\Carbon::parse($record->start_time)));
+                                    if ($record->absent) {
+                                        $absent_hrs += (Illuminate\Support\Carbon::parse($record->end_time)->diffInHours(Illuminate\Support\Carbon::parse($record->start_time)));
+                                        $absent_classes += 1;
+                                    }
+                                }
+                                $percent_absent = ($absent_hrs/$total_hrs) * 100;
+                            }
+                        ?>
+                        <td class="td text-sm leading-5 text-gray-900 d">{{$total_hrs}}</td>
+                        <td class="td text-sm leading-5 text-gray-900 d">{{$absent_hrs}}</td>
+                        <td class="td text-sm leading-5 text-gray-900 d">{{$absent_classes}}</td>
+                        <td class="td text-sm leading-5 text-gray-900 d">{{$percent_absent}}%</td>
+                        <td class="td text-sm leading-5 text-gray-900"><a href="{{route('attendance_details', $unit->id)}}" style="color: #013676;">View Details</a></td>
+                    </tr>
+                @endforeach
+                @endif
               </tbody>
             </table>
           </div>

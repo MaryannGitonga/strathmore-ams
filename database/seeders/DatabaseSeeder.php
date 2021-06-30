@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\UnitAttendance;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,7 +27,8 @@ class DatabaseSeeder extends Seeder
             CourseUnitSeeder::class,
             ScoreSeeder::class,
             AssessmentSeeder::class,
-            
+            StudentUnitSeeder::class,
+            UnitAttendanceSeeder::class
         ]);
     }
 }

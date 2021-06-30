@@ -12,4 +12,14 @@ class Unit extends Model
     public function students(){
         return $this->belongsToMany(Student::class)->withPivot('status','score');
     }
+
+    public function attendance_records()
+    {
+        return $this->hasMany(UnitAttendance::class);
+    }
+
+    public function lecturer()
+    {
+        return $this->belongsTo(Lecturer::class);
+    }
 }

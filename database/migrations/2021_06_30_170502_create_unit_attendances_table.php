@@ -15,6 +15,12 @@ class CreateUnitAttendancesTable extends Migration
     {
         Schema::create('unit_attendances', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('unit_id')->constrained();
+            $table->foreignId('student_id')->constrained();
+            $table->dateTime('start_time');
+            $table->dateTime('end_time');
+            $table->date('lecture_date');
+            $table->boolean('absent')->default(false);
             $table->timestamps();
         });
     }

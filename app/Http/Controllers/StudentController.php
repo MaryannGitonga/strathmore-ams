@@ -152,8 +152,15 @@ class StudentController extends Controller
 
     public function attendance($academic_year)
     {
-        $units = Auth::user()->student->units()->where('year', $academic_year)->get();
-        return back()->compact('units');
+        $first_semester = Auth::user()->student->units()->where('year', $academic_year)->where('semester', 1)->get();
+        $second_semester = Auth::user()->student->units()->where('year', $academic_year)->where('semester', 2)->get();
+        return view('attendance', compact('first_semester', 'second_semester'));
+    }
+
+    public function attendance_details(Unit $unit)
+    {
+        $records = $unit->attendance_records()->where('student_id', Auth::user()->student->id)->get();
+        return view('attendance_details', compact('records'));
     }
 
     //////////////// End of Module 4 ////////////////

@@ -31,5 +31,6 @@ Route::get('/feesstructure',[StudentController::class,'fees_structure'])->middle
 Route::get('/coursework-marks', [StudentController::class, 'course_work']) ->name('coursework_marks');
 Route::get('/download-marks', [StudentController::class, 'download_coursework']) ->name('download_marks');
 Route::get('/attendance/{year}', [StudentController::class, 'attendance']) ->name('attendance');
+Route::get('/attendance-details/{unit:id}', [StudentController::class, 'attendance_details']) ->name('attendance_details');
 
 require __DIR__.'/auth.php';
