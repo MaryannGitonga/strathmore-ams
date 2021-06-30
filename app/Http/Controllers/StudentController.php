@@ -61,7 +61,16 @@ class StudentController extends Controller
 
     public function graduation()
     {
-        return view('graduation');
+        $units = Unit::all();
+        $ready_to_graduate = false;
+        foreach ($units as $unit) {
+            if (
+                DB::table('student_unit')->where('unit_id', $unit->id)->where('student_id', Auth::user()->student->id)->exists() &&
+                DB::table('student_unit')->where('status', 'pending')->doesntExist()) {
+                $ready_to_graduate = true;
+            }
+        }
+        return view('graduation', compact('ready_to_graduate'));
     }
     //////////////// End of Module 1 ////////////////
 

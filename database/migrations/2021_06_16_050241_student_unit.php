@@ -13,7 +13,7 @@ class StudentUnit extends Migration
      */
     public function up()
     {
-        Schema::create('student_units', function (Blueprint $table) {
+        Schema::create('student_unit', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained();
             $table->foreignId('unit_id')->constrained();
