@@ -44,6 +44,7 @@ return array(
     'App\\Models\\StudentParent' => $baseDir . '/app/Models/StudentParent.php',
     'App\\Models\\StudentUnits' => $baseDir . '/app/Models/StudentUnits.php',
     'App\\Models\\Unit' => $baseDir . '/app/Models/Unit.php',
+    'App\\Models\\UnitAttendance' => $baseDir . '/app/Models/UnitAttendance.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

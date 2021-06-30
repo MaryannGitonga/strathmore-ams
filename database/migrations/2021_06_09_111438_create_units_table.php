@@ -21,7 +21,7 @@ class CreateUnitsTable extends Migration
             $table->integer('year');
             $table->integer('semester');
             $table->foreignId('lecturer_id')->constrained();
-            $table->foreignId('course_id')->constrained();
+            $table->foreignId('course_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

@@ -49,7 +49,7 @@ class UnitSeeder extends Seeder
                 'year' => 3,
                 'semester' => 1,
                 'course_id'=> 1,
-                'lecturer_id' => 2
+                'lecturer_id' => 4
             ],
             [
                 'unit_code' => 'ICS 3106',
@@ -58,7 +58,7 @@ class UnitSeeder extends Seeder
                 'year' => 3,
                 'semester' => 1,
                 'course_id'=> 1,
-                'lecturer_id' => 2
+                'lecturer_id' => 10
             ],
             [
                 'unit_code' => 'ICS 3101',
@@ -67,7 +67,7 @@ class UnitSeeder extends Seeder
                 'year' => 3,
                 'semester' => 1,
                 'course_id'=> 1,
-                'lecturer_id' => 1
+                'lecturer_id' => 9
             ],
             [
                 'unit_code' => 'ICS 3179',
@@ -76,7 +76,7 @@ class UnitSeeder extends Seeder
                 'year' => 3,
                 'semester' => 1,
                 'course_id'=> 1,
-                'lecturer_id' => 3
+                'lecturer_id' => 5
             ],
             [
                 'unit_code' => 'ICS 3277',
@@ -85,8 +85,116 @@ class UnitSeeder extends Seeder
                 'year' => 3,
                 'semester' => 1,
                 'course_id'=> 1,
-                'lecturer_id' => 2
+                'lecturer_id' => 6
             ],
+            [
+                'unit_code' => 'ICS 1234',
+                'name' => 'Communications Skills',
+                'credits' => 3,
+                'year' => 3,
+                'semester' => 1,
+                'course_id'=> null,
+                'lecturer_id' => 7
+            ],
+            [
+                'unit_code' => 'ICS 3345',
+                'name' => 'Principles of Management',
+                'credits' => 3,
+                'year' => 3,
+                'semester' => 1,
+                'course_id'=> 1,
+                'lecturer_id' => 8
+            ],
+            // [
+            //     'unit_code' => 'ICS 3277',
+            //     'name' => 'Intro to Programming',
+            //     'credits' => 3,
+            //     'year' => 3,
+            //     'semester' => 1,
+            //     'course_id'=> 1,
+            //     'lecturer_id' => 2
+            // ],
+            // [
+            //     'unit_code' => 'ICS 3277',
+            //     'name' => 'Intro to Programming',
+            //     'credits' => 3,
+            //     'year' => 3,
+            //     'semester' => 1,
+            //     'course_id'=> 1,
+            //     'lecturer_id' => 2
+            // ],
+            // [
+            //     'unit_code' => 'ICS 3277',
+            //     'name' => 'Intro to Programming',
+            //     'credits' => 3,
+            //     'year' => 3,
+            //     'semester' => 1,
+            //     'course_id'=> 1,
+            //     'lecturer_id' => 2
+            // ],
+            // [
+            //     'unit_code' => 'ICS 3277',
+            //     'name' => 'Intro to Programming',
+            //     'credits' => 3,
+            //     'year' => 3,
+            //     'semester' => 1,
+            //     'course_id'=> 1,
+            //     'lecturer_id' => 2
+            // ],
+            // [
+            //     'unit_code' => 'ICS 3277',
+            //     'name' => 'Intro to Programming',
+            //     'credits' => 3,
+            //     'year' => 3,
+            //     'semester' => 1,
+            //     'course_id'=> 1,
+            //     'lecturer_id' => 2
+            // ],
+            // [
+            //     'unit_code' => 'ICS 3277',
+            //     'name' => 'Intro to Programming',
+            //     'credits' => 3,
+            //     'year' => 3,
+            //     'semester' => 1,
+            //     'course_id'=> 1,
+            //     'lecturer_id' => 2
+            // ],
+            // [
+            //     'unit_code' => 'ICS 3277',
+            //     'name' => 'Intro to Programming',
+            //     'credits' => 3,
+            //     'year' => 3,
+            //     'semester' => 1,
+            //     'course_id'=> 1,
+            //     'lecturer_id' => 2
+            // ],
+            // [
+            //     'unit_code' => 'ICS 3277',
+            //     'name' => 'Intro to Programming',
+            //     'credits' => 3,
+            //     'year' => 3,
+            //     'semester' => 1,
+            //     'course_id'=> 1,
+            //     'lecturer_id' => 2
+            // ],
+            // [
+            //     'unit_code' => 'ICS 3277',
+            //     'name' => 'Intro to Programming',
+            //     'credits' => 3,
+            //     'year' => 3,
+            //     'semester' => 1,
+            //     'course_id'=> 1,
+            //     'lecturer_id' => 2
+            // ],
+            // [
+            //     'unit_code' => 'ICS 3277',
+            //     'name' => 'Intro to Programming',
+            //     'credits' => 3,
+            //     'year' => 3,
+            //     'semester' => 1,
+            //     'course_id'=> 1,
+            //     'lecturer_id' => 2
+            // ],
         ];
 
         foreach($units as $unit)

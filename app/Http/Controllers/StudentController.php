@@ -112,6 +112,13 @@ class StudentController extends Controller
         return view('coursework_marks');
     }
 
+    // public function coursework(){
+    //     $user = Auth::user()->id;
+    //     $assessments = Assessment::all();
+    //     $scores = Score::all();
+    //     return view('coursemark', compact('user', 'assessments','scores'));
+    // }
+
     public function download_coursework()
     {
         $pdf = App::make('dompdf.wrapper');
@@ -137,17 +144,16 @@ class StudentController extends Controller
         return view('report', compact('user'));
     }
 
-    public function coursework(){
-        $user = Auth::user()->id;
-        $assessments = Assessment::all();
-        $scores = Score::all();
-        return view('coursemark', compact('user', 'assessments','scores',));
-    }
-
     public function exam_card()
     {
         $user = Auth::user()->id;
         return view('examcard', compact('user'));
+    }
+
+    public function attendance($academic_year)
+    {
+        $units = Auth::user()->student->units()->where('year', $academic_year)->get();
+        return back()->compact('units');
     }
 
     //////////////// End of Module 4 ////////////////

@@ -16,16 +16,44 @@ class LecturerSeeder extends Seeder
     {
         $lecturers = [
             [
-                'name' => 'Dr. Esther Gathenya',
+                'name' => 'Gathenya, Esther',
                 'email' => 'egathenya@strathmore.edu',
             ],
             [
-                'name' => 'Dr. Evans Otieno',
+                'name' => 'Otieno, Evans',
                 'email' => 'eotieno@strathmore.edu',
             ],
             [
-                'name' => 'Miss Eunice Manyasi',
+                'name' => 'Manyasi, Eunice',
                 'email' => 'emanyasi@strathmore.edu',
+            ],
+            [
+                'name' => 'Mukasa, Doreeen',
+                'email' => 'dmukasa@strathmore.edu',
+            ],
+            [
+                'name' => 'Kirui, Juliet',
+                'email' => 'jkirui@strathmore.edu',
+            ],
+            [
+                'name' => 'Kiyegga, Raymond',
+                'email' => 'rkiyegga@strathmore.edu',
+            ],
+            [
+                'name' => 'Mido, Jude Austin',
+                'email' => 'jmido@strathmore.edu',
+            ],
+            [
+                'name' => 'Gikera, James',
+                'email' => 'jgikera@strathmore.edu',
+            ],
+            [
+                'name' => 'Awuor, Kennedy',
+                'email' => 'kawuor@strathmore.edu',
+            ],
+            [
+                'name' => 'Osumaba, John',
+                'email' => 'josumba@strathmore.edu',
             ]
         ];
 
