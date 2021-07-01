@@ -69,6 +69,11 @@
                 &#x2190; Back
                 </a>
               </div>
+            @if (count($records) == 0)
+            <div class="alert alert-info mt-4">
+                <p>There are no attendance records in the selected unit.</p>
+            </div>
+            @else
           <div class="mt-4 align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
             <table class="min-w-full">
               <thead>
@@ -90,12 +95,13 @@
                         $hrs = Illuminate\Support\Carbon::parse($record->end_time)->diffInHours(Illuminate\Support\Carbon::parse($record->start_time));
                     ?>
                     <td class="td text-sm leading-5 text-gray-900">{{$hrs}}</td>
-                    <td class="td text-sm leading-5 text-gray-900">{{$record->absent ? 'No' : 'Yes'}}</td>
+                    <td class="td text-sm leading-5 text-gray-900">{{$record->absent ? 'Yes' : 'No'}}</td>
                 </tr>
                 @endforeach
               </tbody>
             </table>
           </div>
+          @endif
         </div>
     </div>
 </body>

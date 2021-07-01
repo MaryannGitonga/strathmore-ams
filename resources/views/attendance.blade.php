@@ -140,6 +140,16 @@
                         <h5>Second Semester</h5>
                     </th>
                 </tr>
+                <tr>
+                    <th class="th theading">Unit Code</th>
+                    <th class="th theading">Unit Name</th>
+                    <th class="th theading">Lecturer</th>
+                    <th class="th theading">Total Hours</th>
+                    <th class="th theading">Absent Hours</th>
+                    <th class="th theading">Absent Classes</th>
+                    <th class="th theading">Percent Absent</th>
+                    <th class="th theading"></th>
+                </tr>
               </thead>
               <tbody class="bg-white">
                 @if (empty($second_semster))
