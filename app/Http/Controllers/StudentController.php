@@ -8,11 +8,15 @@ use App\Http\Requests\PersonalFilesRequest;
 use App\Models\Student;
 use App\Models\Unit;
 use App\Models\Assessment;
+use App\Models\Fee;
 use App\Models\Score;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
+use Barryvdh\DomPDF\PDF as PDF;
+use Carbon\Carbon;
+use Illuminate\Support\Arr;
 
 class StudentController extends Controller
 {
@@ -23,6 +27,7 @@ class StudentController extends Controller
     {
         $father = Auth::user()->student->parents()->where('gender', 'male')->first();
         $mother = Auth::user()->student->parents()->where('gender', 'female')->first();
+
         return view('personal', compact('father', 'mother'));
     }
 
@@ -121,9 +126,9 @@ class StudentController extends Controller
 
     public function download_coursework()
     {
+        $fees = Fee::all();
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadView('coursework_marks');
-        Log::info(print_r($pdf->loadView('coursework_marks'), true));
+        $pdf->loadView('coursework_marks', $fees);
         return $pdf->download('coursework-marks.pdf');
     }
 
@@ -136,7 +141,9 @@ class StudentController extends Controller
     public function profile()
     {
         $user = Auth::user()->id;
-        return view('dashboard', compact('user'));
+        $loaned_items = Auth::user()->student->loaned_items()->get();
+
+        return view('dashboard', compact('user', 'loaned_items'));
     }
     public function progress()
     {
@@ -171,6 +178,29 @@ class StudentController extends Controller
     public function fees_structure()
     {
         return view('feesstructure');
+    }
+
+    public function fees_statements($year)
+    {
+        $fees_statements = Auth::user()->student->fees()->get();
+
+        $invoice_total = $fees_statements->where('document_type', 'invoice')->sum('amount');
+        $receipt_total = $fees_statements->where('document_type', 'receipt')->sum('amount');
+
+        $invoices = array();
+        $receipts = array();
+        foreach ($fees_statements as $fee) {
+            if (Carbon::parse($fee->date)->format('Y') == $year) {
+                if ($fee->document_type == 'invoice') {
+                    array_push($invoices, $fee);
+                }
+                else if ($fee->document_type == 'receipt') {
+                    array_push($receipts, $fee);
+                }
+            }
+        }
+
+        return view('feestatement', compact('invoices', 'receipts', 'receipt_total', 'invoice_total'));
     }
 
     //////////////// End of Module 5 ////////////////

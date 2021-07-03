@@ -71,7 +71,7 @@
                 class="self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered" id="selected">
                     Fee Structures
                 </a>
-                <a href="#"
+                <a href="{{route('fees_statements', '2021')}}"
                 class="ml-2 self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded available">
                     Fee Statements
                 </a>

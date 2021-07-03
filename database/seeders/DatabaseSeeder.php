@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\LoanItem;
 use App\Models\UnitAttendance;
 use Illuminate\Database\Seeder;
 
@@ -28,7 +29,9 @@ class DatabaseSeeder extends Seeder
             ScoreSeeder::class,
             AssessmentSeeder::class,
             StudentUnitSeeder::class,
-            UnitAttendanceSeeder::class
+            UnitAttendanceSeeder::class,
+            FeeSeeder::class,
+            LoanItemSeeder::class
         ]);
     }
 }

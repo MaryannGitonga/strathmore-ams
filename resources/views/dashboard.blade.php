@@ -168,6 +168,32 @@
                     </table>
                 </div>
             </div>
+            @if (count($loaned_items) != 0)
+            <div id="Mentoring" style="padding-bottom: 20px;">
+                <h2 class="heading2">Loaned Items</h2>
+                <div>
+                    <div id="Mentor"></div>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Items on Loan</th>
+                                <th>Charges (Ksh)</th>
+                            </tr>
+                            @foreach ($loaned_items as $item)
+                                <tr class="trow">
+                                    <td>
+                                        <span>{{$item->name}}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{number_format($item->charges)}}</span>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            @endif
         </div>
         <!--HOME PAGE END-->
 	</body>

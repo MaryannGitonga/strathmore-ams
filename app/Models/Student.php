@@ -52,4 +52,14 @@ class Student extends Model
       return $this->hasMany(StudentParent::class);
     }
 
+    public function loaned_items()
+    {
+      return $this->hasMany(LoanItem::class);
+    }
+
+    public function fees()
+    {
+        return $this->hasMany(Fee::class);
+    }
+
 }
