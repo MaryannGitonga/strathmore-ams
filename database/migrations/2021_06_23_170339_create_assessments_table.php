@@ -16,7 +16,9 @@ class CreateAssessmentsTable extends Migration
         Schema::create('assessments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('mark')->nullable();
+            $table->double('mark');
+            $table->double('total_mark');
+            $table->double('weight');
             $table->foreignId('student_unit_id')->constrained('student_unit');
             $table->timestamps();
         });
