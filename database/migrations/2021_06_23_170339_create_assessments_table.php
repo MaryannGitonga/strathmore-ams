@@ -19,7 +19,8 @@ class CreateAssessmentsTable extends Migration
             $table->double('mark');
             $table->double('total_mark');
             $table->double('weight');
-            $table->foreignId('student_unit_id')->constrained('student_unit');
+            $table->foreignId('student_id')->constrained();
+            $table->foreignId('unit_id')->constrained();
             $table->timestamps();
         });
     }

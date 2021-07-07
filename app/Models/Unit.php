@@ -24,4 +24,8 @@ class Unit extends Model
         return $this->belongsTo(Lecturer::class);
     }
 
+    public function assessments(){
+        return $this->hasMany(Assessment::class);
+    }
+
 }

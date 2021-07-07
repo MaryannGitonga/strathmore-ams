@@ -29,6 +29,9 @@ Route::put('/save-details/{student:id}', [StudentController::class, 'save_detail
 Route::post('/save-files/{student:id}', [StudentController::class, 'save_files'])->middleware(['auth'])->name('save_files');
 Route::get('/feesstructure',[StudentController::class,'fees_structure'])->middleware(['auth'])->name('feesstructure.index');
 Route::get('/coursework-marks', [StudentController::class, 'course_work']) ->name('coursework_marks');
+Route::get('/progress-report/completed-units', [StudentController::class, 'progress_report']) ->name('progress_report');
+Route::get('/progress-report/pending-units', [StudentController::class, 'pending_units']) ->name('pending_units');
+
 Route::get('/download-marks', [StudentController::class, 'download_coursework']) ->name('download_marks');
 Route::get('/attendance/{year}', [StudentController::class, 'attendance']) ->name('attendance');
 Route::get('/attendance-details/{unit:id}', [StudentController::class, 'attendance_details']) ->name('attendance_details');

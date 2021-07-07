@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Log;
 use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
+use phpDocumentor\Reflection\Types\Null_;
 
 class StudentController extends Controller
 {
@@ -114,12 +115,73 @@ class StudentController extends Controller
 
     public function course_work()
     {
-        return view('coursework_marks');
+        $assessments = Auth::user()->student->assessments()->get();
+        $units = Unit::all();
+
+        $first_semester = array();
+        $second_semester = array();
+
+        // foreach ($units as $unit) {
+
+        // }
+
+        foreach ($assessments as $assessment) {
+            if ($assessment->unit->semester == 1) {
+                array_push($first_semester, $assessment);
+            }else {
+                array_push($second_semester, $assessment);
+            }
+        }
+        return view('coursework_marks', compact('assessments'));
     }
 
-    public function coursework(){
+    public function progress_report()
+    {
+        $units = Unit::all();
+        $scores = array();
+        $total = 0;
+        $grade = '';
 
-        return view('coursemark', compact('user', 'assessments','scores'));
+        foreach($units as $unit){
+            if ($unit->assessments()->exists()) {
+                $assessments = $unit->assessments()->where('student_id', Auth::user()->student->id)->get();
+                foreach ($assessments as $assessment) {
+                    $total += number_format((($assessment->mark/$assessment->total_mark) * $assessment->weight * 100), 2, '.');
+                }
+                if ($total < 40) {
+                    $grade = 'E';
+                }elseif ($total >= 40 && $total < 50) {
+                    $grade = 'D';
+
+                }elseif ($total >= 50 && $total < 60) {
+                    $grade = 'C';
+
+                }elseif ($total >= 60 && $total < 70) {
+                    $grade = 'B';
+
+                }elseif ($total >= 70) {
+                    $grade = 'A';
+                }
+                array_push($scores, [$unit->year, $unit->unit_code, $unit->name, $total, $grade, $unit->credits]);
+                $total = 0;
+                $grade = '';
+            }
+        }
+
+        return view('progress_reports', compact('scores'));
+    }
+
+    public function pending_units()
+    {
+        $units = Unit::all();
+        $pending_units = array();
+
+        foreach($units as $unit){
+            if ($unit->assessments()->doesntExist()) {
+                array_push($pending_units, $unit);
+            }
+        }
+        return view('pending', compact('pending_units'));
     }
 
     //////////////// End of Module 3 ////////////////
@@ -196,7 +258,7 @@ class StudentController extends Controller
     public function download_statements()
     {
         $fees = Fee::all();
-        $pdf = PDF::loadView('fees.fees_pdf', compact('fees'));
+        $pdf = PDF::loadView('fees_pdf', compact('fees'));
         return $pdf->download(Auth::user()->name.'-fee-structure.pdf');
     }
 

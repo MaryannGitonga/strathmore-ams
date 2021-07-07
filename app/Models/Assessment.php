@@ -8,9 +8,15 @@ use StudentUnit;
 
 class Assessment extends Model
 {
-   // use HasFactory;
+   use HasFactory;
+
    public function unit()
    {
-       return $this->belongsTo(StudentUnit::class);
+       return $this->belongsTo(Unit::class);
+   }
+
+   public function student()
+   {
+       return $this->belongsTo(Student::class);
    }
 }
