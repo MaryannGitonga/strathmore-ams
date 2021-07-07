@@ -6,9 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fee Statements PDF</title>
     <style>
-        #download{
+        #download, #fees{
             margin: auto;
-            /* width: 50%; */
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+            font-size: 14px;
         }
         thead{
             background-color: #013676;
@@ -17,12 +20,19 @@
         th{
             color: #fff;
             background-color: #013676;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        td, th{
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+            padding: 8px;
         }
     </style>
 </head>
 <body>
     <div id="download">
-        <table id="student">
+        <table id="student" style="border-collapse: collapse">
             <tbody>
                 <tr>
                     <th>Student Number</th>
@@ -57,8 +67,8 @@
                     <td>{{$fee->date}}</td>
                     <td>{{$fee->document_number}}</td>
                     <td style="text-transform: capitalize">{{$fee->document_type}}</td>
-                    <td>{{$fee->document_type == 'invoice'? $fee->amount: 0.00}}</td>
-                    <td>{{$fee->document_type == 'receipt'? $fee->amount: 0.00}}</td>
+                    <td>{{$fee->document_type == 'invoice'? number_format($fee->amount): 0.00}}</td>
+                    <td>{{$fee->document_type == 'receipt'? number_format($fee->amount): 0.00}}</td>
                     <div style="display: none">{{$fee->document_type == 'invoice'? $invoice += $fee->amount: 0.00}}</div>
                     <div style="display: none">{{$fee->document_type == 'receipt'? $receipt += $fee->amount: 0.00}}</div>
                 </tr>

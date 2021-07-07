@@ -197,7 +197,7 @@ class StudentController extends Controller
     {
         $fees = Fee::all();
         $pdf = PDF::loadView('fees.fees_pdf', compact('fees'));
-        return $pdf->download('pdf');
+        return $pdf->download(Auth::user()->name.'-fee-structure.pdf');
     }
 
     //////////////// End of Module 5 ////////////////
