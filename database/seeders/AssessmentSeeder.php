@@ -18,42 +18,32 @@ class AssessmentSeeder extends Seeder
             [
                 'name' => 'CAT 1',
                 'mark' => '20/30' ,
-                'score_id' => 1,
+                'student_unit_id' => 1,
             ],
             [
                 'name' => 'CAT 2',
                 'mark' => '31/40',
-                'score_id' => 1,
+                'student_unit_id' => 1,
             ],
             [
-                'name' => 'CAT 3',
-                'mark' => '26/40',
-                'score_id' => 1,
-            ],
-            [
-                'name' => 'Final Exam',
+                'name' => 'exam',
                 'mark' => '77.45',
-                'score_id' => 1 ,
+                'student_unit_id' => 1 ,
             ],
             [
                 'name' => 'CAT 1',
                 'mark' => '10/30' ,
-                'score_id' => 2,
+                'student_unit_id' => 2,
             ],
             [
                 'name' => 'CAT 2',
                 'mark' => '20/40',
-                'score_id' => 2,
+                'student_unit_id' => 2,
             ],
             [
-                'name' => 'CAT 3',
-                'mark' => '30/30',
-                'score_id' => 2,
-            ],
-            [
-                'name' => 'Final Exam',
+                'name' => 'exam',
                 'mark' => '58.56',
-                'score_id' => 2,
+                'student_unit_id' => 2,
             ],
         ];
 
@@ -62,7 +52,7 @@ class AssessmentSeeder extends Seeder
                 Assessment::create([
                     'name' => $assessment['name'],
                     'mark' => $assessment['mark'],
-                    'score_id' => $assessment['score_id'],
+                    'student_unit_id' => $assessment['student_unit_id'],
                    ]);
             }
     }

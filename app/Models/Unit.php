@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use StudentUnit;
 
 class Unit extends Model
 {
@@ -22,4 +23,5 @@ class Unit extends Model
     {
         return $this->belongsTo(Lecturer::class);
     }
+
 }

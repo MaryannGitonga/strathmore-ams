@@ -17,9 +17,9 @@ class CreateScoresTable extends Migration
             $table->id();
             $table->foreignId('student_id')->constrained();
             $table->foreignId('unit_id')->constrained();
-            $table->float('score');
+            $table->double('score');
             $table->enum('status', ['pending', 'retake', 'completed'])->default('pending');
-            $table->timestamps(); 
+            $table->timestamps();
         });
     }
 

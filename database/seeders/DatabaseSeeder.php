@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             UnitSeeder::class,
             CourseStudentSeeder::class,
             CourseUnitSeeder::class,
-            ScoreSeeder::class,
+            StudentUnitSeeder::class,
             AssessmentSeeder::class,
             StudentUnitSeeder::class,
             UnitAttendanceSeeder::class,

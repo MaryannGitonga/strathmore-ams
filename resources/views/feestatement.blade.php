@@ -85,6 +85,10 @@
                     Fee Statements
                 </a>
             </div>
+            <div class="mt-4 mb-2 option">
+                <a href="{{route('download_statements')}}" class="ordinary p-2" style="text-decoration: none; color: #013676; font-size:13px;">Download Fee Stataments</a>
+            </div>
+            <hr>
             <div class="mt-4 option">
                 <a href="{{route('fees_statements', '2021')}}" class="ordinary p-2">2021 Transactions</a>
                 <a href="{{route('fees_statements', '2020')}}" class="retakes p-2">2020 Transactions</a>

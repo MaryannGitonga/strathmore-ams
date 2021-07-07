@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
-use Barryvdh\DomPDF\PDF as PDF;
+use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
 
@@ -117,19 +117,9 @@ class StudentController extends Controller
         return view('coursework_marks');
     }
 
-    // public function coursework(){
-    //     $user = Auth::user()->id;
-    //     $assessments = Assessment::all();
-    //     $scores = Score::all();
-    //     return view('coursemark', compact('user', 'assessments','scores'));
-    // }
+    public function coursework(){
 
-    public function download_coursework()
-    {
-        $fees = Fee::all();
-        $pdf = App::make('dompdf.wrapper');
-        $pdf->loadView('coursework_marks', $fees);
-        return $pdf->download('coursework-marks.pdf');
+        return view('coursemark', compact('user', 'assessments','scores'));
     }
 
     //////////////// End of Module 3 ////////////////
@@ -201,6 +191,13 @@ class StudentController extends Controller
         }
 
         return view('feestatement', compact('invoices', 'receipts', 'receipt_total', 'invoice_total'));
+    }
+
+    public function download_statements()
+    {
+        $fees = Fee::all();
+        $pdf = PDF::loadView('fees_pdf', compact('fees'));
+        return $pdf->download('pdf');
     }
 
     //////////////// End of Module 5 ////////////////

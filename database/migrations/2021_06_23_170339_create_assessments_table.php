@@ -17,7 +17,7 @@ class CreateAssessmentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('mark')->nullable();
-            $table->foreignId('score_id')->constrained();
+            $table->foreignId('student_unit_id')->constrained('student_unit');
             $table->timestamps();
         });
     }
