@@ -33,6 +33,6 @@ Route::get('/download-marks', [StudentController::class, 'download_coursework'])
 Route::get('/attendance/{year}', [StudentController::class, 'attendance']) ->name('attendance');
 Route::get('/attendance-details/{unit:id}', [StudentController::class, 'attendance_details']) ->name('attendance_details');
 Route::get('/fees-statements/{year}', [StudentController::class, 'fees_statements']) ->name('fees_statements');
-Route::get('/fees-statements/download', [StudentController::class, 'download_statements']) ->name('download_statements');
+Route::get('fees-statement/download', [StudentController::class, 'download_statements']) ->name('download_statements');
 
 require __DIR__.'/auth.php';

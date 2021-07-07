@@ -196,7 +196,7 @@ class StudentController extends Controller
     public function download_statements()
     {
         $fees = Fee::all();
-        $pdf = PDF::loadView('fees_pdf', compact('fees'));
+        $pdf = PDF::loadView('fees.fees_pdf', compact('fees'));
         return $pdf->download('pdf');
     }
 
