@@ -25,9 +25,28 @@ class StudentController extends Controller
     public function progress()
     {
         $user = Auth::user()->id;
-        return view('report', compact('user'));
+        return view('progress_report', compact('user'));
     }
-
+    public function pending()
+    {
+        $user = Auth::user()->id;
+        return view('pending', compact('user'));
+    }
+    public function notdone()
+    {
+        $user = Auth::user()->id;
+        return view('notdone', compact('user'));
+    }
+    public function specialization()
+    {
+        $user = Auth::user()->id;
+        return view('specialization', compact('user'));
+    }
+    public function exemptions()
+    {
+        $user = Auth::user()->id;
+        return view('exemptions', compact('user'));
+    }
     public function coursework(){
         $user = Auth::user()->id;
         $assessments = Assessment::all();

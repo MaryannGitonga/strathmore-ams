@@ -29,5 +29,10 @@ Route::put('/save-details/{student:id}', [StudentController::class, 'save_detail
 Route::post('/save-files/{student:id}', [StudentController::class, 'save_files'])->middleware(['auth'])->name('save_files');
 Route::get('/coursework-marks', [StudentController::class, 'course_work']) ->name('coursework_marks');
 Route::get('/download-marks', [StudentController::class, 'download_coursework']) ->name('download_marks');
+Route::get('/progress_report', [StudentController::class, 'progress']) ->name('progress_report');
+Route::get('/pending', [StudentController::class, 'pending']) ->name('pending');
+Route::get('/notdone', [StudentController::class, 'notdone']) ->name('notdone');
+Route::get('/specialization', [StudentController::class, 'specialization']) ->name('specialization');
+Route::get('/exemptions', [StudentController::class, 'exemptions']) ->name('exemptions');
 
 require __DIR__.'/auth.php';
