@@ -16,53 +16,40 @@ use Illuminate\Support\Facades\Log;
 
 class StudentController extends Controller
 {
-    // Module 4
-    public function profile()
+
+    //////////////// Module 1 ////////////////
+
+    public function personal_details()
     {
-        $user = Auth::user()->id;
-        return view('dashboard', compact('user'));
+        $father = Auth::user()->student->parents()->where('gender', 'male')->first();
+        $mother = Auth::user()->student->parents()->where('gender', 'female')->first();
+        return view('personal', compact('father', 'mother'));
     }
-    public function progress()
+
+    public function documents()
     {
         $user = Auth::user()->id;
         return view('progress_report', compact('user'));
     }
-    public function pending()
+   
+
+    public function save_files(PersonalFilesRequest $request, Student $student)
     {
-        $user = Auth::user()->id;
-        return view('pending', compact('user'));
-    }
-    public function notdone()
-    {
-        $user = Auth::user()->id;
-        return view('notdone', compact('user'));
-    }
-    public function specialization()
-    {
-        $user = Auth::user()->id;
-        return view('specialization', compact('user'));
-    }
-    public function exemptions()
-    {
-        $user = Auth::user()->id;
-        return view('exemptions', compact('user'));
-    }
-    public function coursework(){
-        $user = Auth::user()->id;
-        $assessments = Assessment::all();
-        $scores = Score::all();
-        return view('coursemark', compact('user', 'assessments','scores',));
+        $validated = $request->validated();
+
+        $student->result_slip = $validated['result_slip'];
+        $student->ID_copy = $validated['ID_copy'];
+
+        $student->update();
+
+        return redirect()->route('account.profile')->with('success', 'Personal files uploaded successfully');
     }
 
-    public function exam_card()
-    {
-        $user = Auth::user()->id;
-        return view('examcard', compact('user'));
-    }
+    //////////////// End of Module 1 ////////////////
 
-    // End of Module 4
 
-    // Module 2
+
+    //////////////// Module 2 ////////////////
 
     public function register_units() {
         $registered_units = Auth::user()->student->units()->where('status', 'pending')->get();
@@ -99,53 +86,33 @@ class StudentController extends Controller
         return redirect()->route('available')->with('success', 'Unit registered successfully');
     }
 
-    // End of Module 2
+    //////////////// End of Module 2 ////////////////
 
-    // Module 1
 
-    public function personal_details()
+
+
+    //////////////// Module 3 ////////////////
+
+    public function pending()
     {
-        $father = Auth::user()->student->parents()->where('gender', 'male')->first();
-        $mother = Auth::user()->student->parents()->where('gender', 'female')->first();
-        return view('personal', compact('father', 'mother'));
+        $user = Auth::user()->id;
+        return view('pending', compact('user'));
     }
-
-    public function documents()
+    public function notdone()
     {
-        return view('fileUpload');
+        $user = Auth::user()->id;
+        return view('notdone', compact('user'));
     }
-
-    public function save_details(PersonalDetailsRequest $request, Student $student)
+    public function specialization()
     {
-        $validated = $request->validated();
-
-        $student->national_ID = $validated['national_ID'];
-        $student->religion = $validated['religion'];
-        $student->address = $validated['address'];
-        $student->postal_code = $validated['postal_code'];
-        $student->home_county = $validated['home_county'];
-        $student->residence = $validated['residence'];
-        $student->personal_email = $validated['personal_email'];
-
-        $student->update();
-        return redirect()->route('account.profile')->with('success', 'Personal details updated successfully');
+        $user = Auth::user()->id;
+        return view('specialization', compact('user'));
     }
-
-    public function save_files(PersonalFilesRequest $request, Student $student)
+    public function exemptions()
     {
-        $validated = $request->validated();
-
-        $student->result_slip = $validated['result_slip'];
-        $student->ID_copy = $validated['ID_copy'];
-
-        $student->update();
-
-        return redirect()->route('account.profile')->with('success', 'Personal files uploaded successfully');
+        $user = Auth::user()->id;
+        return view('exemptions', compact('user'));
     }
-
-    // End of Module 1
-
-    // Module 3
 
     public function course_work()
     {
@@ -157,9 +124,38 @@ class StudentController extends Controller
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadView('coursework_marks');
         Log::info(print_r($pdf->loadView('coursework_marks'), true));
-        return redirect()->route('coursework_marks');
-        // return $pdf->download('coursework-marks.pdf');
+        return $pdf->download('coursework-marks.pdf');
     }
 
-    // End of Module 3
+    //////////////// End of Module 3 ////////////////
+
+
+
+
+    //////////////// Module 4 ////////////////
+    public function profile()
+    {
+        $user = Auth::user()->id;
+        return view('dashboard', compact('user'));
+    }
+    public function progress()
+    {
+        $user = Auth::user()->id;
+        return view('progress_report', compact('user'));
+    }
+
+    public function coursework(){
+        $user = Auth::user()->id;
+        $assessments = Assessment::all();
+        $scores = Score::all();
+        return view('coursemark', compact('user', 'assessments','scores',));
+    }
+
+    public function exam_card()
+    {
+        $user = Auth::user()->id;
+        return view('examcard', compact('user'));
+    }
+
+    //////////////// End of Module 4 ////////////////
 }
