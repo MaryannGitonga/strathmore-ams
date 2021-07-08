@@ -42,9 +42,7 @@
       border: 1px solid #C0ACAC;
     }
 
-    .d{
-      text-align: center;
-    }
+
 
     .td-heading{
         border-left: 0.2em solid #e2e8f0;

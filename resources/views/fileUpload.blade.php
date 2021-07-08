@@ -42,9 +42,7 @@
       border: 1px solid #C0ACAC;
     }
 
-    .d{
-      text-align: center;
-    }
+
   </style>
 </head>
 <body>

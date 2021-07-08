@@ -184,6 +184,43 @@ class StudentController extends Controller
         return view('pending', compact('pending_units'));
     }
 
+    public function download_reports()
+    {
+        $units = Unit::all();
+        $scores = array();
+        $total = 0;
+        $grade = '';
+
+        foreach($units as $unit){
+            if ($unit->assessments()->exists()) {
+                $assessments = $unit->assessments()->where('student_id', Auth::user()->student->id)->get();
+                foreach ($assessments as $assessment) {
+                    $total += number_format((($assessment->mark/$assessment->total_mark) * $assessment->weight * 100), 2, '.');
+                }
+                if ($total < 40) {
+                    $grade = 'E';
+                }elseif ($total >= 40 && $total < 50) {
+                    $grade = 'D';
+
+                }elseif ($total >= 50 && $total < 60) {
+                    $grade = 'C';
+
+                }elseif ($total >= 60 && $total < 70) {
+                    $grade = 'B';
+
+                }elseif ($total >= 70) {
+                    $grade = 'A';
+                }
+                array_push($scores, [$unit->year, $unit->unit_code, $unit->name, $total, $grade, $unit->credits]);
+                $total = 0;
+                $grade = '';
+            }
+        }
+
+        $pdf = PDF::loadView('progress_report_pdf', compact('scores'));
+        return $pdf->download('progress-report.pdf');
+    }
+
     //////////////// End of Module 3 ////////////////
 
 
@@ -259,7 +296,7 @@ class StudentController extends Controller
     {
         $fees = Fee::all();
         $pdf = PDF::loadView('fees_pdf', compact('fees'));
-        return $pdf->download(Auth::user()->name.'-fee-structure.pdf');
+        return $pdf->download('fee-structure.pdf');
     }
 
     //////////////// End of Module 5 ////////////////

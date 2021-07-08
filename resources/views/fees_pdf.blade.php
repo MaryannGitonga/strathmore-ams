@@ -13,6 +13,9 @@
             border-collapse: collapse;
             font-size: 14px;
         }
+        table{
+            margin-bottom: 20px;
+        }
         thead{
             background-color: #013676;
             color: #fff;
@@ -67,20 +70,20 @@
                     <td>{{$fee->date}}</td>
                     <td>{{$fee->document_number}}</td>
                     <td style="text-transform: capitalize">{{$fee->document_type}}</td>
-                    <td>{{$fee->document_type == 'invoice'? number_format($fee->amount): 0.00}}</td>
-                    <td>{{$fee->document_type == 'receipt'? number_format($fee->amount): 0.00}}</td>
+                    <td>{{$fee->document_type == 'invoice'? number_format($fee->amount, 2, '.'): number_format(0.00, 2, '.')}}</td>
+                    <td>{{$fee->document_type == 'receipt'? number_format($fee->amount, 2, '.'): number_format(0.00, 2, '.')}}</td>
                     <div style="display: none">{{$fee->document_type == 'invoice'? $invoice += $fee->amount: 0.00}}</div>
                     <div style="display: none">{{$fee->document_type == 'receipt'? $receipt += $fee->amount: 0.00}}</div>
                 </tr>
                 @endforeach
                 <tr>
                     <td colspan="3" style="font-weight: bold">Total</td>
-                    <td style="font-weight: bold">{{number_format($invoice)}}</td>
-                    <td style="font-weight: bold">{{number_format($receipt)}}</td>
+                    <td style="font-weight: bold">{{number_format($invoice, 2, '.')}}</td>
+                    <td style="font-weight: bold">{{number_format($receipt, 2, '.')}}</td>
                 </tr>
                 <tr>
                     <td colspan="3" style="font-weight: bold">Balance</td>
-                    <td colspan="2" style="font-weight: bold">{{number_format($receipt-$invoice)}}</td>
+                    <td colspan="2" style="font-weight: bold">{{number_format($receipt-$invoice, 2, '.')}}</td>
                 </tr>
             </tbody>
         </table>

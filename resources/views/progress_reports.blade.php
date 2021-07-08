@@ -45,10 +45,6 @@
       border: 1px solid #C0ACAC;
     }
 
-    .d{
-      text-align: center;
-    }
-
     #selected {
       background-color: white;
       color: #013676;
@@ -85,6 +81,9 @@
                 class="ml-2 self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered">
                     Exemptions
                 </a>
+            </div>
+            <div class="mt-4 mb-2 option">
+                <a type="button" href="{{route('download_reports')}}" class="ordinary p-2" style="text-decoration: none; color: #013676; font-size:13px;">Download Progress Report</a>
             </div>
             <div class="mt-4 align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
                 <table class="min-w-full">
