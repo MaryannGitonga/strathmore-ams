@@ -66,6 +66,10 @@
                 <div class="alert alert-info">
                     <p>You are upto date. We already have your documents.</p>
                 </div>
+        @else
+            <div class="alert alert-danger">
+                <p>Unfortunately, we do not have your documents. Please upload.</p>
+            </div>
         @endif
         <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
             <div class="unit-section flex mt-3">
@@ -90,13 +94,13 @@
                         </thead>
                         <tbody class="bg-white">
                             <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                                <td class="td text-sm leading-5 text-gray-900">Secondary school results slip</td>
+                                <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Secondary school results slip</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input type="file" name="result_slip" id="inpResultSlip">
                                 </td>
                             </tr>
                             <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                                <td class="td text-sm leading-5 text-gray-900">National ID/Passport/Birth certificate</td>
+                                <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">National ID/Passport/Birth certificate</td>
                                 <td class="td text-sm leading-5 text-gray-900">
                                     <input type="file" name="ID_copy" id="inpId">
                                 </td>

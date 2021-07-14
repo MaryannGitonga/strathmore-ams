@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        @yield('auth-styling')
     </head>
     <body>
         <div class="app">

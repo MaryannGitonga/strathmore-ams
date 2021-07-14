@@ -6,7 +6,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="{{ asset('/vendor/laratrust/img/logo.png') }}">
-  <title>Strathmore AMS - @yield('title')</title>
+  <title>Strathmore AMS @yield('title')</title>
   <link href="{{ asset(mix('laratrust.css', 'vendor/laratrust')) }}" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -94,10 +94,11 @@
     </nav>
 
   <header class="bg-white shadow">
-    <div class="max-w-6xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold leading-tight text-gray-900">
+    <div class="max-w-6xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex flex-col">
+      <h1 class="text-3xl font-bold leading-tight text-gray-900" style="width: 60%;">
         @yield('title')
       </h1>
+      @yield('help-center')
     </div>
   </header>
   <main>

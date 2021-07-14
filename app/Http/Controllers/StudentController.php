@@ -7,17 +7,11 @@ use App\Http\Requests\PersonalDetailsRequest;
 use App\Http\Requests\PersonalFilesRequest;
 use App\Models\Student;
 use App\Models\Unit;
-use App\Models\Assessment;
 use App\Models\Fee;
-use App\Models\Score;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Log;
 use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
-use Illuminate\Support\Arr;
-use phpDocumentor\Reflection\Types\Null_;
 
 class StudentController extends Controller
 {
@@ -29,7 +23,7 @@ class StudentController extends Controller
         $father = Auth::user()->student->parents()->where('gender', 'male')->first();
         $mother = Auth::user()->student->parents()->where('gender', 'female')->first();
 
-        return view('personal', compact('father', 'mother'));
+        return view('personal_details', compact('father', 'mother'));
     }
 
     public function documents()
