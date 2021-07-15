@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('laratrust::panel.layout')
 
 @section('title', 'Fee structure')
 

@@ -84,6 +84,11 @@
                         <h5>First Semester</h5>
                     </th>
                 </tr>
+                @if (empty($first_semester))
+                <tr class="tr">
+                    <td colspan="8" style="padding-top: 20px;">There are no units registered for this semester.</td>
+                </tr>
+                @else
                 <tr>
                     <th class="th theading">Unit Code</th>
                     <th class="th theading">Unit Name</th>
@@ -96,11 +101,6 @@
                 </tr>
               </thead>
               <tbody class="bg-white">
-                @if (empty($first_semester))
-                <tr class="tr">
-                    <td colspan="8" style="padding-top: 20px;">There are no units registered for this semester.</td>
-                </tr>
-                @else
                   @foreach ($first_semester as $unit)
                     <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                         <td class="td text-sm leading-5 text-gray-900">{{$unit->unit_code}}</td>
@@ -120,7 +120,7 @@
                                         $absent_classes += 1;
                                     }
                                 }
-                                $percent_absent = ($absent_hrs/$total_hrs) * 100;
+                                $percent_absent = number_format(($absent_hrs/$total_hrs) * 100, 2, '.');
                             }
                         ?>
                         <td class="td text-sm leading-5 text-gray-900 d">{{$total_hrs}}</td>
@@ -138,6 +138,11 @@
                         <h5>Second Semester</h5>
                     </th>
                 </tr>
+                @if (empty($second_semester))
+                    <tr class="tr">
+                        <td colspan="8" style="padding-top: 20px;">There are no units registered for this semester.</td>
+                    </tr>
+                @else
                 <tr>
                     <th class="th theading">Unit Code</th>
                     <th class="th theading">Unit Name</th>
@@ -150,13 +155,8 @@
                 </tr>
               </thead>
               <tbody class="bg-white">
-                @if (empty($second_semster))
-                    <tr class="tr">
-                        <td colspan="8" style="padding-top: 20px;">There are no units registered for this semester.</td>
-                    </tr>
-                @else
                 @foreach ($second_semester as $unit)
-                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;>
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                         <td class="td text-sm leading-5 text-gray-900">{{$unit->unit_code}}</td>
                         <td class="td text-sm leading-5 text-gray-900">{{$unit->name}}</td>
                         <td class="td text-sm leading-5 text-gray-900">{{$unit->lecturer->name}}</td>
@@ -174,7 +174,7 @@
                                         $absent_classes += 1;
                                     }
                                 }
-                                $percent_absent = ($absent_hrs/$total_hrs) * 100;
+                                $percent_absent = number_format(($absent_hrs/$total_hrs) * 100, 2, '.');
                             }
                         ?>
                         <td class="td text-sm leading-5 text-gray-900 d">{{$total_hrs}}</td>
@@ -183,7 +183,7 @@
                         <td class="td text-sm leading-5 text-gray-900 d">{{$percent_absent}}%</td>
                         <td class="td text-sm leading-5 text-gray-900"><a href="{{route('attendance_details', $unit->id)}}" style="color: #013676;">View Details</a></td>
                     </tr>
-                @endforeach
+                  @endforeach
                 @endif
               </tbody>
             </table>

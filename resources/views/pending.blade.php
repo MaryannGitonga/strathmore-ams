@@ -1,6 +1,6 @@
 @extends('laratrust::panel.layout')
 
-@section('title', 'Progress Report')
+@section('title', 'Pending Units')
 
 @section('content')
 <!DOCTYPE html>

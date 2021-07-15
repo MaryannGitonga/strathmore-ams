@@ -6,30 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Progress Report PDF</title>
     <style>
-        #download, #reports{
+        #download, #fees, #reports{
             margin: auto;
             width: 100%;
             text-align: left;
             border-collapse: collapse;
             font-size: 14px;
         }
-
         table{
             margin-bottom: 20px;
         }
-
         thead{
-            background-color: #013676;
-            color: #fff;
+            background-color: #aaa;
+            color: #000;
+
+        }
+        th tr td{
+            font-weight: bold;
         }
         th{
-            color: #fff;
-            background-color: #013676;
+            color: #000;
+            background-color: #aaa;
             padding-top: 12px;
             padding-bottom: 12px;
         }
         td, th{
-            border: 1px solid #ddd;
+            border: 1px solid #000;
             border-collapse: collapse;
             padding: 8px;
         }
@@ -37,18 +39,10 @@
 </head>
 <body>
     <div id="download">
-        <table id="student" style="border-collapse: collapse">
-            <tbody>
-                <tr>
-                    <th>Student Number</th>
-                    <td>{{Auth::user()->student->admission_no}}</td>
-                </tr>
-                <tr>
-                    <th>Student Name</th>
-                    <td>{{Auth::user()->name}}</td>
-                </tr>
-            </tbody>
-        </table>
+        <h2 style="text-align: center">STRATHMORE UNIVERSITY<br>PROGRESS REPORT</h2>
+        <h3>Student ID: {{Auth::user()->student->admission_no}}</h3>
+        <h3>Student Name: {{Auth::user()->name}}</h3>
+        <h3>Statement Date: {{Illuminate\Support\Carbon::now()->toFormattedDateString()}}</h3>
         <table id="reports">
             <thead>
                 <tr>

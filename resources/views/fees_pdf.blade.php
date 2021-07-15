@@ -17,17 +17,21 @@
             margin-bottom: 20px;
         }
         thead{
-            background-color: #013676;
-            color: #fff;
+            background-color: #aaa;
+            color: #000;
+
+        }
+        th tr td{
+            font-weight: bold;
         }
         th{
-            color: #fff;
-            background-color: #013676;
+            color: #000;
+            background-color: #aaa;
             padding-top: 12px;
             padding-bottom: 12px;
         }
         td, th{
-            border: 1px solid #ddd;
+            border: 1px solid #000;
             border-collapse: collapse;
             padding: 8px;
         }
@@ -35,25 +39,17 @@
 </head>
 <body>
     <div id="download">
-        <table id="student" style="border-collapse: collapse">
-            <tbody>
-                <tr>
-                    <th>Student Number</th>
-                    <td>{{Auth::user()->student->admission_no}}</td>
-                </tr>
-                <tr>
-                    <th>Student Name</th>
-                    <td>{{Auth::user()->name}}</td>
-                </tr>
-            </tbody>
-        </table>
+        <h2 style="text-align: center">STRATHMORE UNIVERSITY<br>STUDENT STATEMENT</h2>
+        <h3>Student ID: {{Auth::user()->student->admission_no}}</h3>
+        <h3>Student Name: {{Auth::user()->name}}</h3>
+        <h3>Statement Date: {{Illuminate\Support\Carbon::now()->toFormattedDateString()}}</h3>
         <table id="fees">
             <thead>
                 <tr>
                     <td rowspan="2">Date</td>
                     <td rowspan="2">Document Number</td>
                     <td rowspan="2">Receipt Type</td>
-                    <td colspan="2">Amount</td>
+                    <td colspan="2" style="text-align: center">Amount</td>
                 </tr>
                 <tr>
                     <td>Debit</td>

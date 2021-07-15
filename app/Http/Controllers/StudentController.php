@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\GraduationFormRequest;
 use App\Http\Requests\PersonalDetailsRequest;
 use App\Http\Requests\PersonalFilesRequest;
 use App\Models\Student;
@@ -72,6 +73,20 @@ class StudentController extends Controller
         }
         return view('graduation', compact('ready_to_graduate'));
     }
+
+    public function graduation_form()
+    {
+        $graduation = false;
+        return view('graduation_form', compact('graduation'));
+    }
+
+    public function accept_graduation(GraduationFormRequest $request)
+    {
+        $validated = $request->validated();
+        $graduation = true;
+
+        return view('graduation_form', compact('graduation'));
+    }
     //////////////// End of Module 1 ////////////////
 
 
@@ -122,24 +137,26 @@ class StudentController extends Controller
 
     public function course_work()
     {
-        $assessments = Auth::user()->student->assessments()->get();
         $units = Unit::all();
 
         $first_semester = array();
         $second_semester = array();
 
-        // foreach ($units as $unit) {
-
-        // }
-
-        foreach ($assessments as $assessment) {
-            if ($assessment->unit->semester == 1) {
-                array_push($first_semester, $assessment);
-            }else {
-                array_push($second_semester, $assessment);
+        foreach ($units as $unit) {
+            if ($unit->assessments()->exists()) {
+                $assessments = $unit->assessments()->where('student_id', Auth::user()->student->id)->get();
+                $unit_assess = array(
+                    $unit->name => $assessments
+                );
+                if ($unit->semester == 1) {
+                    array_push($first_semester, $unit_assess);
+                }else {
+                    array_push($second_semester, $unit_assess);
+                }
             }
         }
-        return view('coursework_marks', compact('assessments'));
+
+        return view('coursework_marks', compact('first_semester', 'second_semester'));
     }
 
     public function progress_report()

@@ -21,7 +21,6 @@ class Student extends Model
         'religion'
     ];
 
-
     public function user()
     {
         return $this->hasOne(User::class);

@@ -1,6 +1,6 @@
-@extends('layouts.layout')
+@extends('laratrust::panel.layout')
 
-@section('title', 'Fees Statement')
+@section('title', 'Fees Statements')
 
 @section('content')
 <!DOCTYPE html>

@@ -6,7 +6,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="{{ asset('/vendor/laratrust/img/logo.png') }}">
-  <title>Strathmore AMS @yield('title')</title>
+  <title>Strathmore AMS - @yield('title')</title>
   <link href="{{ asset(mix('laratrust.css', 'vendor/laratrust')) }}" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -48,7 +48,7 @@
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                        <a href="{{route('coursework_marks')}}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                           Coursework Marks
                         </a>
                       </li>
@@ -73,7 +73,7 @@
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                        <a href="{{ route('graduation') }}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                           Register for Graduation
                         </a>
                       </li>
