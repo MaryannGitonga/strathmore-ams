@@ -68,10 +68,10 @@
                     Completed Units
                 </a>
                 <a href="{{route('pending_units')}}"
-                class="ml-2 self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered" id="selected">
+                class="ml-2 self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered">
                     Pending Units
                 </a>
-                <a href="#"
+                <a href="{{ route('units_not_done') }}"
                 class="ml-2 self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered">
                     Compulsory Units Not Done
                 </a>

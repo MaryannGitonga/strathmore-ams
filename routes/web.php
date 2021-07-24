@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/coursework-marks', [StudentController::class, 'course_work']) ->name('coursework_marks');
     Route::get('/progress-report/completed-units', [StudentController::class, 'progress_report']) ->name('progress_report');
     Route::get('/progress-report/pending-units', [StudentController::class, 'pending_units']) ->name('pending_units');
+    Route::get('/progress-report/units-not-done', [StudentController::class, 'pending_units']) ->name('units_not_done');
     Route::get('/graduation',[StudentController::class, 'graduation'])->name('graduation');
     Route::get('/graduation-form', [StudentController::class, 'graduation_form'])->name('graduation_form');
     Route::post('/graduation-form', [StudentController::class, 'accept_graduation'])->name('accept_form');

@@ -138,7 +138,7 @@
                   </label>
               </div>
             <div class="flex justify-end">
-              <button class="self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered ml-4" type="submit">Save</button>
+              <button class="self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered ml-4" type="submit">Send</button>
             </div>
           </form>
         </div>
