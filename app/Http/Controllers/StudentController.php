@@ -164,6 +164,7 @@ class StudentController extends Controller
         $units = Unit::all();
         $scores = array();
         $total = 0;
+        $gpv = 0.00;
         $grade = '';
 
         foreach($units as $unit){
@@ -186,7 +187,31 @@ class StudentController extends Controller
                 }elseif ($total >= 70) {
                     $grade = 'A';
                 }
-                array_push($scores, [$unit->year, $unit->unit_code, $unit->name, $total, $grade, $unit->credits]);
+
+                if($total <= 100 && $total >= 75){
+                    $gpv = 4.00;
+                }else if($total <= 74 && $total >= 70){
+                    $gpv = 3.67;
+                }else if($total <= 69 && $total >= 65){
+                    $gpv = 3.33;
+                }else if($total <= 64 && $total >= 60){
+                    $gpv = 3.00;
+                }else if($total <= 59 && $total >= 55){
+                    $gpv = 2.67;
+                }else if($total <= 54 && $total >= 50){
+                    $gpv = 2.33;
+                }else if($total <= 49 && $total >= 45){
+                    $gpv = 2.00;
+                }else if($total <= 44 && $total >= 40){
+                    $gpv = 1.67;
+                }else if($total <= 39 && $total >= 35){
+                    $gpv = 1.33;
+                }else if($total <= 34 && $total >= 30){
+                    $gpv = 1.00;
+                }
+
+
+                array_push($scores, [$unit->year, $unit->unit_code, $unit->name, $total, $grade, $unit->credits, $gpv]);
                 $total = 0;
                 $grade = '';
             }
@@ -235,7 +260,31 @@ class StudentController extends Controller
                 }elseif ($total >= 70) {
                     $grade = 'A';
                 }
-                array_push($scores, [$unit->year, $unit->unit_code, $unit->name, $total, $grade, $unit->credits]);
+
+                if($total <= 100 && $total >= 75){
+                    $gpv = 4.00;
+                }else if($total <= 74 && $total >= 70){
+                    $gpv = 3.67;
+                }else if($total <= 69 && $total >= 65){
+                    $gpv = 3.33;
+                }else if($total <= 64 && $total >= 60){
+                    $gpv = 3.00;
+                }else if($total <= 59 && $total >= 55){
+                    $gpv = 2.67;
+                }else if($total <= 54 && $total >= 50){
+                    $gpv = 2.33;
+                }else if($total <= 49 && $total >= 45){
+                    $gpv = 2.00;
+                }else if($total <= 44 && $total >= 40){
+                    $gpv = 1.67;
+                }else if($total <= 39 && $total >= 35){
+                    $gpv = 1.33;
+                }else if($total <= 34 && $total >= 30){
+                    $gpv = 1.00;
+                }
+
+
+                array_push($scores, [$unit->year, $unit->unit_code, $unit->name, $total, $grade, $unit->credits, $gpv]);
                 $total = 0;
                 $grade = '';
             }

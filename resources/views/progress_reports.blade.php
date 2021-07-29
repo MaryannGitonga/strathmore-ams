@@ -155,7 +155,7 @@
                         <td class="td text-sm leading-5 text-gray-900 d">{{$score[3]}}</td>
                         <td class="td text-sm leading-5 text-gray-900 d">{{$score[4]}}</td>
                         <td class="td text-sm leading-5 text-gray-900 d">{{$score[5]}}</td>
-                        <td class="td text-sm leading-5 text-gray-900 d"></td>
+                        <td class="td text-sm leading-5 text-gray-900 d">{{number_format($score[6], 2, '.')}}</td>
                     </tr>
                     @endforeach
                   </tbody>

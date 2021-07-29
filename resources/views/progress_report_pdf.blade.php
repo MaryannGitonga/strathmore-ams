@@ -64,7 +64,7 @@
                     <td>{{$score[3]}}</td>
                     <td>{{$score[4]}}</td>
                     <td>{{$score[5]}}</td>
-                    <td></td>
+                    <td>{{number_format($score[6], 2, '.')}}</td>
                 </tr>
                 @endforeach
                 <?php
