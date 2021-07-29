@@ -1,4 +1,4 @@
-@extends('laratrust::panel.layout')
+@extends('layouts.layout')
 
 @section('title', 'Self Registration')
 
@@ -43,8 +43,6 @@
     .units{
       border: 1px solid #C0ACAC;
     }
-
-
 
     #selected {
       background-color: white;

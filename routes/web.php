@@ -45,4 +45,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('fees-statement/download', [StudentController::class, 'download_statements']) ->name('download_statements');
     Route::get('progress-report/download', [StudentController::class, 'download_reports']) ->name('download_reports');
 
+    Route::get('dashboard-two', function () {
+        return view('dashboard-two');
+    });
+
 });

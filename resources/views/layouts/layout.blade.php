@@ -18,7 +18,7 @@
             <a class="navbar-brand d-flex" href="{{ route('dashboard') }}" style="background-color: #fff; border-radius: 50%; padding: 10px">
             <div><img src="{{ asset('/vendor/laratrust/img/logo.png') }}" style="height:40px"></div></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon text-white"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -53,12 +53,12 @@
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                        <a href="{{route('progress_report')}}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                           Progress Reports
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="#" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                        <a href="{{route('attendance', Auth::user()->student->group->year)}}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                           Attendance
                         </a>
                       </li>
@@ -73,7 +73,7 @@
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="{{route('graduation')}}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
+                        <a href="{{ route('graduation') }}" class="nav-link pt-3 pl-3" style="color: #fff; font-size:13px;">
                           Register for Graduation
                         </a>
                       </li>
@@ -94,10 +94,11 @@
     </nav>
 
   <header class="bg-white shadow">
-    <div class="max-w-6xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold leading-tight text-gray-900">
+    <div class="max-w-6xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex flex-col">
+      <h1 class="text-3xl font-bold leading-tight text-gray-900" style="width: 60%;">
         @yield('title')
       </h1>
+      @yield('help-center')
     </div>
   </header>
   <main>

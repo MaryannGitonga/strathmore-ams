@@ -1,4 +1,5 @@
-@extends('laratrust::panel.layout')
+@extends('layouts.layout')
+
 @section('title', 'Self Registration')
 
 @section('content')
