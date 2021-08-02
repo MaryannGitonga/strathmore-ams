@@ -21,7 +21,6 @@ class Student extends Model
         'religion'
     ];
 
-
     public function user()
     {
         return $this->hasOne(User::class);
@@ -50,6 +49,21 @@ class Student extends Model
     public function parents()
     {
       return $this->hasMany(StudentParent::class);
+    }
+
+    public function loaned_items()
+    {
+      return $this->hasMany(LoanItem::class);
+    }
+
+    public function fees()
+    {
+        return $this->hasMany(Fee::class);
+    }
+
+    public function assessments()
+    {
+        return $this->hasMany(Assessment::class);
     }
 
 }

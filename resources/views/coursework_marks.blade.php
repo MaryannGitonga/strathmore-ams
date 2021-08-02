@@ -1,4 +1,4 @@
-@extends('laratrust::panel.layout')
+@extends('layouts.layout')
 
 @section('title', 'Coursework Marks')
 
@@ -45,9 +45,7 @@
       border: 1px solid #C0ACAC;
     }
 
-    .d{
-      text-align: center;
-    }
+
 
     #selected {
       background-color: white;
@@ -70,11 +68,11 @@
                     2021-2022
                 </a>
                 <a href="#"
-                class="ml-2 self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered">
+                class="ml-2 self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered" id="selected">
                     2020-2021
                 </a>
                 <a href="#"
-                class="ml-2 self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded available" id="selected">
+                class="ml-2 self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded available">
                     2019-2020
                 </a>
             </div>
@@ -97,66 +95,83 @@
                 </tr>
               </thead>
               <tbody class="bg-white">
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Data Structures & Algorithms</td>
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">95</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
-                    <td class="td text-sm leading-5 text-gray-900">25/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">CAT 2</td>
-                    <td class="td text-sm leading-5 text-gray-900">28/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Digital Logic</td>
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">80</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
-                    <td class="td text-sm leading-5 text-gray-900">24/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">CAT 2</td>
-                    <td class="td text-sm leading-5 text-gray-900">22/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Object Oriented Programming II</td>
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">74</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
-                    <td class="td text-sm leading-5 text-gray-900">25/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">Project</td>
-                    <td class="td text-sm leading-5 text-gray-900">20/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Probability & Statistics I</td>
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">90</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
-                    <td class="td text-sm leading-5 text-gray-900">28/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">CAT 2</td>
-                    <td class="td text-sm leading-5 text-gray-900">28/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
+                <tbody class="bg-white">
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
+                        <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Internet Application Programming</td>
+                        <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">71.69</td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                    </tr>
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
+                        <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
+                        <td class="td text-sm leading-5 text-gray-900">20/30</td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                    </tr>
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
+                        <td class="td text-sm leading-5 text-gray-900">CAT 2</td>
+                        <td class="td text-sm leading-5 text-gray-900">31/40</td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                    </tr>
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
+                        <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Software Engineering</td>
+                        <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">74.77</td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                    </tr>
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
+                        <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
+                        <td class="td text-sm leading-5 text-gray-900">10/30</td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                    </tr>
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
+                        <td class="td text-sm leading-5 text-gray-900">CAT 2</td>
+                        <td class="td text-sm leading-5 text-gray-900">25/30</td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                    </tr>
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
+                        <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Service Based Learning</td>
+                        <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">87.43</td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                    </tr>
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                    </tr>
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                    </tr>
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
+                        <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Discrete Mathematics</td>
+                        <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">78.86</td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                    </tr>
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
+                        <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
+                        <td class="td text-sm leading-5 text-gray-900">25/30</td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                    </tr>
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
+                        <td class="td text-sm leading-5 text-gray-900">CAT 2</td>
+                        <td class="td text-sm leading-5 text-gray-900">29/30</td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                    </tr>
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
+                        <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Computer Networks</td>
+                        <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">71.62</td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                    </tr>
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
+                        <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
+                        <td class="td text-sm leading-5 text-gray-900">27/30</td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                    </tr>
+                    <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
+                        <td class="td text-sm leading-5 text-gray-900">CAT 2</td>
+                        <td class="td text-sm leading-5 text-gray-900">29/30</td>
+                        <td class="td text-sm leading-5 text-gray-900"></td>
+                    </tr>
+                  </tbody>
               </tbody>
               <thead>
                 <tr>
@@ -167,63 +182,78 @@
               </thead>
               <tbody class="bg-white">
                 <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Advanced Networking</td>
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">95</td>
+                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Principles of Ethics</td>
+                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">77.43</td>
                     <td class="td text-sm leading-5 text-gray-900"></td>
                 </tr>
                 <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                     <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
-                    <td class="td text-sm leading-5 text-gray-900">25/30</td>
+                    <td class="td text-sm leading-5 text-gray-900">20/30</td>
                     <td class="td text-sm leading-5 text-gray-900"></td>
                 </tr>
                 <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                     <td class="td text-sm leading-5 text-gray-900">CAT 2</td>
-                    <td class="td text-sm leading-5 text-gray-900">28/30</td>
+                    <td class="td text-sm leading-5 text-gray-900">19/30</td>
                     <td class="td text-sm leading-5 text-gray-900"></td>
                 </tr>
                 <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Computer Organization & Architecture</td>
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">80</td>
+                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Probability Statistics</td>
+                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">72.86</td>
                     <td class="td text-sm leading-5 text-gray-900"></td>
                 </tr>
                 <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                     <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
-                    <td class="td text-sm leading-5 text-gray-900">24/30</td>
+                    <td class="td text-sm leading-5 text-gray-900">20/30</td>
                     <td class="td text-sm leading-5 text-gray-900"></td>
                 </tr>
                 <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                     <td class="td text-sm leading-5 text-gray-900">CAT 2</td>
-                    <td class="td text-sm leading-5 text-gray-900">22/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Internet Application Programming</td>
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">74</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
-                    <td class="td text-sm leading-5 text-gray-900">25/30</td>
-                    <td class="td text-sm leading-5 text-gray-900"></td>
-                </tr>
-                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
-                    <td class="td text-sm leading-5 text-gray-900">Project</td>
                     <td class="td text-sm leading-5 text-gray-900">20/30</td>
                     <td class="td text-sm leading-5 text-gray-900"></td>
                 </tr>
                 <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Operating Systems</td>
-                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">90</td>
+                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Advanced Networking</td>
+                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">74.77</td>
                     <td class="td text-sm leading-5 text-gray-900"></td>
                 </tr>
                 <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                     <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
-                    <td class="td text-sm leading-5 text-gray-900">28/30</td>
+                    <td class="td text-sm leading-5 text-gray-900">10/30</td>
                     <td class="td text-sm leading-5 text-gray-900"></td>
                 </tr>
                 <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
                     <td class="td text-sm leading-5 text-gray-900">CAT 2</td>
-                    <td class="td text-sm leading-5 text-gray-900">28/30</td>
+                    <td class="td text-sm leading-5 text-gray-900">25/30</td>
+                    <td class="td text-sm leading-5 text-gray-900"></td>
+                </tr>
+                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
+                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Machine Learning</td>
+                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">87.43</td>
+                    <td class="td text-sm leading-5 text-gray-900"></td>
+                </tr>
+                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
+                    <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
+                    <td class="td text-sm leading-5 text-gray-900">25/30</td>
+                    <td class="td text-sm leading-5 text-gray-900"></td>
+                </tr>
+                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
+                    <td class="td text-sm leading-5 text-gray-900">CAT 2</td>
+                    <td class="td text-sm leading-5 text-gray-900">29/30</td>
+                    <td class="td text-sm leading-5 text-gray-900"></td>
+                </tr>
+                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0; background-color: #e2e8f0">
+                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">Operating Systems</td>
+                    <td class="td text-sm leading-5 text-gray-900" style="font-weight: bold">78.86</td>
+                    <td class="td text-sm leading-5 text-gray-900"></td>
+                </tr>
+                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
+                    <td class="td text-sm leading-5 text-gray-900">CAT 1</td>
+                    <td class="td text-sm leading-5 text-gray-900">25/30</td>
+                    <td class="td text-sm leading-5 text-gray-900"></td>
+                </tr>
+                <tr class="tr" style="border-bottom: 0.08em solid #e2e8f0;">
+                    <td class="td text-sm leading-5 text-gray-900">CAT 2</td>
+                    <td class="td text-sm leading-5 text-gray-900">29/30</td>
                     <td class="td text-sm leading-5 text-gray-900"></td>
                 </tr>
               </tbody>

@@ -1,4 +1,4 @@
-@extends('laratrust::panel.layout')
+@extends('layouts.layout')
 
 @section('title', 'Fee structure')
 
@@ -47,9 +47,7 @@
       border: 1px solid #C0ACAC;
     }
 
-    .d{
-      text-align: center;
-    }
+
 
     #selected {
       background-color: white;
@@ -71,12 +69,12 @@
                 class="self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded registered" id="selected">
                     Fee Structures
                 </a>
-                <a href="#"
+                <a href="{{route('fees_statements', '2021')}}"
                 class="ml-2 self-end text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded available">
                     Fee Statements
                 </a>
-            </div>
-          <div class="mt-4 align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
+            </div>  <div class="mt-4 align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
+
         <table class="min-w-full">
           <thead>
               <tr>

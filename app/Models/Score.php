@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Score extends Model
 {
     //use HasFactory;
-    public function assessments()
-    {
-        return $this->hasMany(Assessments::class);
-    }
+    // public function assessments()
+    // {
+    //     return $this->hasMany(Assessments::class);
+    // }
 }

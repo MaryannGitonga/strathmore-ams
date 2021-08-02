@@ -15,8 +15,10 @@ class CreateFeesTable extends Migration
     {
         Schema::create('fees', function (Blueprint $table) {
             $table->id();
-            $table->integer('amount');
-            $table->string('transcript_no');
+            $table->date('date');
+            $table->enum('document_type', ['invoice', 'receipt']);
+            $table->integer('document_number')->unique();
+            $table->double('amount');
             $table->foreignId('student_id')->constrained();
             $table->timestamps();
         });

@@ -1,11 +1,19 @@
-@extends('layouts.app')
+@extends('laratrust::panel.layout')
+
+@section('auth-styling')
+    <style>
+        .container{
+            min-width: 300px;
+        }
+    </style>
+@endsection
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="text-align: center; color:#013676; font-size: 30px">{{ __('Login') }}</div>
+                <div class="card-header" style="text-align: center; color:#013676; font-size: 30px">Strathmore AMS - {{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

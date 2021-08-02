@@ -23,6 +23,8 @@ class CourseUnitSeeder extends Seeder
             array('course_id' => 1, 'unit_id' => 6),
             array('course_id' => 1, 'unit_id' => 7),
             array('course_id' => 1, 'unit_id' => 8),
+            array('course_id' => 1, 'unit_id' => 9),
+            array('course_id' => 1, 'unit_id' => 10),
             array('course_id' => 2, 'unit_id' => 1),
             array('course_id' => 2, 'unit_id' => 2),
             array('course_id' => 2, 'unit_id' => 3),
@@ -31,6 +33,8 @@ class CourseUnitSeeder extends Seeder
             array('course_id' => 2, 'unit_id' => 6),
             array('course_id' => 2, 'unit_id' => 7),
             array('course_id' => 2, 'unit_id' => 8),
+            array('course_id' => 2, 'unit_id' => 9),
+            array('course_id' => 2, 'unit_id' => 10),
         ));
     }
 }

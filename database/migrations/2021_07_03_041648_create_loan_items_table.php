@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class StudentUnit extends Migration
+class CreateLoanItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class StudentUnit extends Migration
      */
     public function up()
     {
-        Schema::create('student_unit', function (Blueprint $table) {
+        Schema::create('loan_items', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->double('charges');
             $table->foreignId('student_id')->constrained();
-            $table->foreignId('unit_id')->constrained();
-            $table->enum('status', ['pending', 'retake', 'completed'])->default('pending');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +29,6 @@ class StudentUnit extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_unit');
+        Schema::dropIfExists('loan_items');
     }
 }
