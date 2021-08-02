@@ -1,4 +1,4 @@
-@extends('laratrust::panel.layout')
+@extends('layouts.layout')
 
 @section('auth-styling')
     <style>
